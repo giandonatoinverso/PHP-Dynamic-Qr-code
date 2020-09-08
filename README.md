@@ -3,4 +3,4 @@
 
 <h2><a href="https://giandonatoinverso.it/qrcode" target="_blank">DEMO HERE</a></h2>
 
-# Features
+ok
