@@ -6,6 +6,7 @@
 <h1>Features</h1>
 
 <ul>
+<li><strong>#1 Dynamic Qr code generator on GitHub with database to store Qr codes</strong></li>
 <li>Create unlimited Qr code</li>
 <li>Easy installation wizard</li>
 <li>Control panel with 2 access levels</li>
