@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PHP Qr Code Generator- Documentation</title>
+
+    <link href="assets/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/style.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Left Panel Start -->
+    <div class="leftpanel">
+
+        <nav class="navbar navbar-default sidebar" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#header" style="margin-top: -50px">
+                        <img src="assets/DynamicQRCode_Original.png" style="width: 200px; heigth: 63px">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a class="page-scroll" href="#header">Start</a></li>
+                        <li><a class="page-scroll" href="#installation">Installation</a></li>
+                        <li><a class="page-scroll" href="#frontend">Frontend Files Structure</a></li>
+                        <li><a class="page-scroll" href="#backend">Backend Files Structure</a></li>
+                        <li><a class="page-scroll" href="#database">Database structure</a></li>
+                        <li><a class="page-scroll" href="#script">Script structure</a></li>
+                        <li><a class="page-scroll" href="#dynamic-class">Dynamic Qr code class</a></li>
+                        <li><a class="page-scroll" href="#static-class">Static Qr code class</a></li>
+                        <li><a class="page-scroll" href="#dashboard">Dashboard</a></li>
+                        <li><a class="page-scroll" href="#list-all">List All</a></li>
+                        <li><a class="page-scroll" href="#insertion-dynamic">Insertion of Dynamic Qr code</a></li>
+                        <li><a class="page-scroll" href="#insertion-static">Insertion of Static Qr code</a></li>
+                        <li><a class="page-scroll" href="#edit">Edit a Qr code</a></li>
+                        <li><a class="page-scroll" href="#delete">Delete a Qr code</a></li>
+                        <li><a class="page-scroll" href="#read">Read a Qr code</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+    <!-- Left Panel End -->
+
+    <!-- Main Panel Start -->
+    <div class="mainpanel">
+
+        <div class="title" id="header">
+            <h1>PHP Dynamic Qr code - Generator of dynamic and static Qr code V1.0</h1>
+            <small> Documentation - Version 1.0 / Created: 24/08/2020 Last Update: </small>
+        </div>
+
+        <div class="wrapper">
+            <h2> About PHP Dynamic Qr code</h2>
+            <p><b>PHP Dynamic Qr code </b> is a script that allows the generation and saving of dynamic and static QR codes. It has clean, responsive and user-friendly design. It is Based on <a href="https://adminlte.io/" target="_blank">AdminLte </a> the <i>"Best open source admin dashboard & control panel theme. Built on top of Bootstrap" </i> and <a href="https://github.com/chetans9/core-php-admin-panel" target="_blank">Core PHP Admin Panel,</a> a simple Admin Pannel written in core PHP that contains an implementation of general features you might need in your website admin panel like: record management (CRUD), secure authentication, pagination, filters.<br><br>
+            N.B. A <strong>careful reading</strong> of this documentation is recommended to fully understand how the script works.
+            </p>
+
+            <h2> What is a dynamic qr code</h2>
+            <p><strong>A Dynamic QR code has a modifiable destination URL.</strong><br> A Short URL is placed into the QR code which then transparently re-directs the user to the intended destination. The destination of a dynamic QR code can be changed at any time and as often as you want – even if your marketing material has already been printed. This will save reprinting costs, effort and enable you to respond to any changes in the campaign as quickly as possible.</p>
+
+            <h2> What is a static qr code</h2>
+            <p><strong>A Static QR code has a fixed destination URL.</strong><br> The information encoded in <b>static QR codes are fixed</b>. The destination/data is stored directly in the QR Code graphic (hence QR codes are also getting larger and form a more complex pattern if there is more data to store). Therefore, the stored destination/data cannot be changed. Any typo in an already printed QR code cannot be changed, as with any other printed material. <strong>Through this script you can create 13 different types of static qr code.</strong></p>
+            
+        <div id="installation">
+            <h2> Installation</h2>
+            <p>Follow these steps to install the script:</p>
+            <ol><strong>
+                <li>Extract the zip archive to your server</li>
+                <li>Open the /install/ folder in the browser</li>
+                <p>Check system requirements. If one of these extensions is not enabled, you must enable it from your server settings. If all requirements are provided, click Next.</p>
+                <img src="assets/img/start.png" style="width: 75%; height: 75%">
+                <li>Check folder permissions</li>
+                <p>If a folder doesn't have read and write permissions you need to change the settings on your server. If all requirements are provided, click Next.</p>
+                <img src="assets/img/folder.png" style="width: 75%; height: 75%">
+                <li>Enter your database credentials. Click next.</li>
+                <p></p>
+                <img src="assets/img/database.png" style="width: 75%; height: 75%">
+                <li>Finish</li>
+                <p>The installation is finished and you can access the control panel.</p>
+            </ol>
+        </div>
+        
+            
+        <div id="frontend">
+            <h2> Frontend Files Structure</h2><br>
+            <strong>a) CSS Files
+            <ul>
+                                    <li>
+                                        dist/css/adminlte.min.css Contains general css codes for admin panel
+                                    </li>
+                                    <li>
+                                        dist/css/alt folder Contains additional styles files
+                                    </li>    
+                                    <li>
+                                        plugins/fontawesome-free/css/all.min.css Contains css of fontawesome
+                                    </li>
+                                    <li>
+                                        plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css Contains css of color picker input data
+                                    </li>
+                                    <li>
+                                        plugins/daterangepicker/daterangepicker.css Contains css of daterange input data
+                                    </li>
+                                    <li>
+                                        plugins/overlayScrollbars/css/OverlayScrollbars.css Contains css of the scrollbar relating to template customization (top right)
+                                    </li>
+            </ul><br>
+
+            <strong>b) JS Files
+            <ul>
+                                    <li>
+                                        dist/js/adminlte.js Contains general js codes for admin panel
+                                    </li>
+                                    <li>
+                                        dist/js/custom.js Contains custom js code for front-end
+                                    </li>    
+                                    <li>
+                                        build/ folder Contains general dashboard script codes
+                                    </li>
+            </ul><br>
+
+            <strong>c) Plugins used in application
+            <ul>
+                                    <li>
+                                        <strong><a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></strong> The world’s most popular front-end open source toolkit
+                                    </li>
+                                    <li>
+                                        <strong><a href="https://itsjavi.com/bootstrap-colorpicker/" target="_blank">Bootstrap colorpicker</a></strong> Bootstrap Colorpicker is a modular color picker plugin for Bootstrap 4
+                                    </li>    
+                                    <li>
+                                        <strong><a href="https://www.chartjs.org/" target="_blank">Chart JS</a></strong> Simple yet flexible JavaScript charting for designers & developers
+                                    </li>
+                                    <li>
+                                        <strong><a href="https://www.daterangepicker.com/" target="_blank">Date Range Picker</a></strong> A JavaScript component for choosing date ranges, dates and times
+                                    </li>
+                                    <li>
+                                        <strong><a href="https://fontawesome.com/" target="_blank">Fontawesome</a></strong> The world's most popular and easiest to use icon set just got an upgrade
+                                    </li>
+                                    <li>
+                                        <strong><a href="https://jquery.com/" target="_blank">jQuery</a></strong> jQuery is a JavaScript library that greatly reduces the amount of code that you must write
+                                    </li>
+                                    <li>
+                                        <strong><a href="https://jqueryui.com/" target="_blank">jQueryUI</a></strong> jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library
+                                    </li>
+                                    <li>
+                                        <strong><a href="https://jqueryvalidation.org/" target="_blank">jQuery Validation</a></strong> This jQuery plugin makes simple clientside form validation easy
+                                    </li>
+                                    <li>
+                                        <strong><a href="https://momentjs.com/" target="_blank">Moment JS</a></strong> Moment will still create a moment global, which is useful to plugins and other
+                                   </li>
+                                   <li>
+                                        <strong><a href="https://kingsora.github.io/OverlayScrollbars" target="_blank">Overlay Scrollbars</a></strong> A JavaScript scrollbar plugin which hides native scrollbars and provides
+custom styleable overlay scrollbars
+                                   </li>
+                </ul><br>
+            </div>
+            
+
+            <div id="backend">
+                <h2> Backend Files Structure </h2>
+                <ul class="directory-list">
+
+                    <li class="folder">config
+                        <ul>
+                            <li>config.php</li>
+                        </ul>
+                    </li>
+                    <li class="folder">forms
+                        <ul>
+                            <li class="folder">static
+								<ul>
+									<li>bitcoin.php</li>
+                                    <li>bookmark.php</li>
+                                    <li>country-code.html</li>
+                                    <li>email.php</li>
+                                    <li>event.php</li>
+                                    <li>location.php</li>
+                                    <li>paypal.php</li>
+                                    <li>phone.php</li>
+                                    <li>skype.php</li>
+                                    <li>sms.php</li>
+                                    <li>text.php</li>
+                                    <li>vcard.php</li>
+                                    <li>whatsapp.php</li>
+                                    <li>wifi.php</li>
+								</ul>
+							</li>
+                            <li>dynamic_table.php</li> 
+                            <li>static_table.php</li> 
+                            <li>users_table.php</li>
+                            <li>add_dynamic_form.php</li>
+                            <li>add_static_form.php</li>
+                            <li>edit_dynamic_form.php</li>
+                            <li>edit_static_form.php</li>
+                            <li>users_form.php</li>
+                            <li>filters.php</li>
+                            <li>logo.php</li>
+                            <li>qrcode_options.php</li>
+                        </ul>
+                    </li>
+
+                    <li class="folder">helpers
+                        <ul>
+                            <li>helpers.php</li>
+                        </ul>
+                    </li>
+                    <li class="folder">includes
+                        <ul>
+                            <li>head.php</li>
+                            <li>footer.php</li>
+                            <li>navbar.php</li>
+                            <li>sidebar.php</li>
+                            <li>search_order.php</li>
+                            <li>auth_validate.php</li>
+                            <li>flash_messages.php</li>
+                        </ul>
+                    </li>
+                    <li class="folder">lib
+                        <ul>
+                            <li class="folder">MysqliDb
+                                <ul>
+                                    <li>MysqliDb.php</li>
+                                </ul>
+                            </li>
+                            <li class="folder">Dynamic_Qrcode
+                                <ul>
+                                    <li>Dynamic_Qrcode.php</li>
+                                </ul>
+                            </li>
+                            <li class="folder">Static_Qrcode
+                                <ul>
+                                    <li>Static_Qrcode.php</li>
+                                </ul>
+                            </li>
+                            <li class="folder">Users
+                                <ul>
+                                    <li>Users.php</li>
+                                </ul>
+                            </li>
+                            <li class="folder">vCard
+                                <ul>
+                                    <li>vCard.php</li>
+                                </ul>
+                            </li>
+                            <li class="folder">ICS
+                                <ul>
+                                    <li>ICS.php</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="folder">saved_qrcode</li>
+                    <li>index.php</li>
+                    <li>login.php</li>
+                    <li>logout.php</li>
+                    <li>authenticate.php</li>
+                    <li>dynamic_qrcodes.php</li>
+                    <li>static_qrcodes.php</li>
+                    <li>admin_users.php</li>
+                    <li>add_dynamic.php</li>
+                    <li>add_static.php</li>
+                    <li>add_admin.php</li>
+                    <li>edit_dynamic.php</li>
+                    <li>edit_static.php</li>
+                    <li>edit_admin.php</li>
+                    <li>delete_dynamic.php</li>
+                    <li>delete_static.php</li>
+                    <li>delete_users.php</li>
+                </ul>
+            </div><br>
+
+            <strong>a) Open source libraries used
+            <ul>
+                                    <li>
+                                        <strong><a href="https://github.com/ThingEngineer/PHP-MySQLi-Database-Class" target="_blank">MysqliDb</a></strong> Simple MySQLi wrapper and object mapper with prepared statements
+                                    </li>
+                                    <li>
+                                        <strong><a href="https://github.com/pH-7/QRCode-Generator-PHP-Class" target="_blank">vCard Qr code</a></strong> This class allows to easily generate a simple QR code using vCard 4.0 
+                                    </li>    
+                                    <li>
+                                        <strong><a href="https://gist.github.com/jakebellacera/635416" target="_blank">PHP to ICS</a></strong> A convenient script to generate iCalendar (.ics) files on the fly in PHP
+                                    </li>
+            </ul><br>
+            
+            <div id="database">
+            <h2> Database Structure</h2><br>
+            <strong>a) dynamic_qrcodes
+            <ul>
+                                    <li>
+                                        `id`            -- int -- primary key -- auto increment
+                                    </li>
+                                    <li>
+                                        `filename`      -- varchar 
+                                    </li>    
+                                    <li>
+                                        `format`        -- varchar
+                                    </li>
+                                    <li>
+                                        `identifier`    -- longtext
+                                    </li>
+                                    <li>
+                                        `link`          -- varchar
+                                    </li>
+                                    <li>
+                                        `qrcode`        -- varchar
+                                    </li>
+                                    <li>
+                                        `scan`          -- varchar
+                                    </li>
+                                    <li>
+                                        `state`         -- varchar -- default: enable
+                                    </li>
+                                    <li>
+                                        `created_by`    -- int
+                                    </li>
+                                    <li>
+                                        `created-at`    -- timestamp
+                                    </li>
+            </ul><br>
+            
+            <strong>b) static_qrcodes
+            <ul>
+                                    <li>
+                                        `id`            -- int -- primary key -- auto increment
+                                    </li>
+                                    <li>
+                                        `filename`      -- varchar 
+                                    </li>    
+                                    <li>
+                                        `format`        -- varchar
+                                    </li>
+                                    <li>
+                                        `type`          -- varchar
+                                    </li>
+                                    <li>
+                                        `content`       -- mediumtext
+                                    </li>
+                                    <li>
+                                        `qrcode`        -- varchar
+                                    </li>
+                                    <li>
+                                        `state`         -- varchar
+                                    </li>
+                                    <li>
+                                        `state`         -- varchar -- default: enable
+                                    </li>
+                                    <li>
+                                        `created_by`    -- int
+                                    </li>
+                                    <li>
+                                        `created-at`    -- timestamp
+                                    </li>
+            </ul><br>
+            
+            <strong>b) admin_accounts
+            <ul>
+                                    <li>
+                                        `id`            -- int -- primary key -- auto increment
+                                    </li>
+                                    <li>
+                                        `user_name`     -- varchar 
+                                    </li>    
+                                    <li>
+                                        `password`      -- varchar
+                                    </li>
+                                    <li>
+                                        `series_id`     -- varchar
+                                    </li>
+                                    <li>
+                                        `remember_token`-- mediumtext
+                                    </li>
+                                    <li>
+                                        `expires`       -- datetime
+                                    </li>
+                                    <li>
+                                        `admin_type`    -- varchar
+                                    </li>
+            </ul><br>
+            <p>In this script we use the open source MysqliDb library. It is a very large library, however this script only needs the simplest functions.<br>
+
+The configuration file for the database (and more) is located in /config/config.php and it is included in all php files of this script. To interact with the database, therefore, it will be necessary to call the function: <b>getDbInstance()</b>.<br><br>
+    
+MysqliDb class methods used:<br>
+<b>query() :</b> A method to perform select query, <b>return array</b>. Contains the returned rows from the query, LINE 646<br>
+<b>getValue() :</b> A convenient SELECT COLUMN function to get a single column value from one row, <b>return array of values</b>, LINE 787<br>
+<b>insert() :</b> Insert method to add new row, LINE 818<br>
+<b>update() :</b> Update query that need first <b>where()</b> method, LINE 905<br>
+<b>where() :</b> This method allows you to specify multiple (method chaining optional) AND WHERE statements for SQL queries, LINE 969<br>
+<b>orWhere() :</b> This method allows you to specify multiple (method chaining optional) OR WHERE statements for SQL queries, LINE 1012<br>
+<b>orderBy() :</b> This method allows you to specify multiple (method chaining optional) ORDER BY statements for SQL queries, LINE 1229<br>
+<b>getLastError() :</b> Method returns mysql error, LINE 2079<br>
+<b>paginate() :</b> Pagination wrapper to get(), LINE 2401<br>
+
+
+            </p>
+            </div><br>
+            
+            <div id="script">
+            <h2> Script Structure</h2>
+            <ol>
+                    <li>General</li>
+            <p>
+            The optimization work has produced a script consisting of modules (php pages) with a <b>similar macro-structure to each other</b>. All pages include the <b>config.php</b> file which in turn includes the <b>helpers.php</b> file and the <b>MysqliDb class</b> and the <b>auth_validation.php</b> file which takes care of verifying on each page that the user is logged in (read authentication types).<br><br></p>
+            
+            
+            <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>Explanation of the config.php file
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+/*This file is generated after the script installation wizard and contains some constants used throughout the script as well as database credentials.*/
+
+//Get current page:
+
+define('CURRENT_PAGE', basename($_SERVER['REQUEST_URI']));
+
+
+//You can change the folder where the qr code will be saved:
+
+define('PATH', './saved_qrcode/');    
+
+
+//The directory includes the full path needed by the server (Apache). You can test by printing it.
+
+define('DIRECTORY', BASE_PATH.'/saved_qrcode/');
+
+
+//You can change the page name for the redirect and the search parameter (the default is "id"):
+
+define('READ_PATH', $_SERVER['HTTP_HOST'].'/read.php?id=');     
+
+
+require_once BASE_PATH . '/lib/MysqliDb/MysqliDb.php';
+require_once BASE_PATH . '/helpers/helpers.php';
+
+define('DB_HOST', "%HOST%");
+define('DB_USER', "%USER%");
+define('DB_PASSWORD', "%PASSWORD%");
+define('DB_NAME', "%DB_NAME%");
+
+
+/**
+ * Get instance of DB object
+ */
+function getDbInstance() {
+	return new MysqliDb(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+}
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                                     
+            
+            
+            <p>As for the HTML structure, all pages start by including the <b>head.php</b> page which contains the entire head tag, the <b>navbar.php</b> page, the <b>sidebar.php</b> page.
+There is a header with the page title and then the different main content for each page. Finally, each page includes the <b>footer.php</b> file with the required js scripts; some pages have <b>additional js scripts</b> needed
+
+As specified at the beginning, the frontend part of this script is done with <b>AdminLTE</b> (Bootstrap). We therefore recommend reading the official documentation to fully understand the HTML structure.
+            </p>
+            
+            
+                    <li>Qr code and Admin users</li>
+            
+            <p><b>The dashboard page has a separate structure</b>, while the dynamic qr codes, static qr codes and users sections have a <b>very similar structure</b> to each other.<br><br>
+            <b>List all</b> page (the same for all 3 sections)<br>
+            ├─ *page_name*.php<br>
+            ├─   ├─ includes/flash_messages.php<br>
+            ├─   ├─ includes/filters.php<br>
+            ├─   ├─ forms/*name*_table.php<br><br>
+            The following shows which files are included in the management pages (add, edit, delete) of the 3 sections:<br><br>
+            <b>Dynamic qr codes</b> section<br>
+            ├─ add_dynamic.php<br>
+            ├─   ├─ forms/add_dynamic_form.php<br>
+            ├─ edit_dynamic.php<br>
+            ├─   ├─ forms/edit_dynamic_form.php<br>
+            ├─ delete_dynamic.php<br><br>
+            <b>Static qr codes</b> section<br>
+            ├─ add_static.php<br>
+            ├─   ├─ forms/add_static_form.php<br>
+            ├─   ├─   ├─ forms/static/*type*.php &nbsp; example: text.php<br>
+            ├─   ├─   ├─   ├─ forms/qrcode_options.php<br>
+            ├─ edit_static.php<br>
+            ├─  ├─ forms/edit_static_form.php<br>
+            ├─ delete_static.php<br><br>
+            <b>Admin</b> section<br>
+            ├─ add_admin.php<br>
+            ├─   ├─ forms/users_form.php<br>
+            ├─ edit_admin.php<br>
+            ├─  ├─ forms/users_form.php<br>
+            ├─ delete_user.php<br><br>
+            
+            </p>
+            
+            </ol>
+            </div>
+            
+            <p><strong>This script is designed as OOP as possible. Therefore, all QR code management operations are performed using classes and methods. There are 3 classes for 3 sections (dynamic, static, users).
+All 3 have the same macrostructure. Below there is the explanation of only the two classes (dynamic, static). Within the explanations for the classes I do not write the entire code but I limit myself only to indicate a clear reference.<br><br>
+N.B. Some functions are not mentioned or explained in detail because there are adequate comments inside the class file.</strong></p>
+
+            <div id="authentication">
+            <h2> How authentication works</h2>
+            <p>There are two levels of authentication: <strong>admin</strong> and <strong>superadmin</strong>. The difference between the two is that the admin level cannot add or delete qr code. It is enabled to consult and modify the QR code already created. At installation time there is only one default superadmin user that it is recommended to change.</p>
+            <p>This script adopts a "simple" but secure authentication method also with the aid of COOKIES to memorize the user's access and two pages for login and logout are included, moreover, most of the operations take place through external functions located in the <strong>helpers.php</strong> file.</p>
+            </div>
+                
+            
+            <div id="dynamic-class">
+            <h2> Dynamic Qr code class</h2><br>
+            <strong>a) private functions
+            <ul>
+                                    <li>
+                                        collect() <br>
+                                        
+                                        <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>Dynamic_Qrcodes.php - collect()
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+/*It is a function called by add() and by edit() which allows you to initially store common data for both insertion and modification. 
+For this class these data are:                                                                                                              */
+
+$data_to_db['filename'];
+$data_to_db['created_at'];
+$data_to_db['link'];
+
+
+//the function returns an array with the results which will be expanded later by the add() and edit() functions with additional specific data:
+
+return $data_to_db;
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                                    </li> 
+                                    <li>
+                                        setOptions() 
+                                    </li>    
+                                    <li>
+                                        addLogo()
+                                    </li>
+                                    <li>
+                                        failure()
+                                    </li>
+                                    <li>
+                                        success()
+                                    </li>
+                                    <li>
+                                        info()
+                                    </li>
+            </ul><br><br>
+            <strong>b) public functions
+            <ul>
+                                    <li>
+                                        setOrderingValues()
+                                    </li>
+                                    <li>
+                                        add() <br>
+                                        
+                                        <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>Dynamic_Qrcodes.php - add()
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+//We collect all the data necessary for the database and to build the qr code in this array:
+
+$data_to_db
+
+
+//We collect all the additional options for the qr code through the setOptions() method in this array:
+
+$options
+
+
+/*If in the folder where we save the qr code (constant "DIRECTORY") there is no file with the same name (and format), 
+we proceed with the creation:                                                                                                               */
+
+if(!file_exists(...))
+
+
+//We take the generated qr code and we create the name of the complete file to be inserted into the saved qr code folder:
+
+$content = file_get_contents(...);
+$filename = DIRECTORY.$data_to_db['filename'].'.'.$data_to_db['format'];
+file_put_contents($filename, $content);
+
+
+//We insert in the database all the fields collected in input:
+
+$db->insert('dynamic_qrcodes', $data_to_db);
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                                    </li>    
+                                    
+                                    <li>
+                                        edit() <br>
+                                        
+                                        <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>Dynamic_Qrcodes.php - edit()
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+//Through $_GET we recover the id of the qr code and the name of the current file:
+
+$dynamic_id = htmlspecialchars($_GET['dynamic_id'], ENT_QUOTES, 'UTF-8');          
+$old_filename = htmlspecialchars($_GET['filename'], ENT_QUOTES, 'UTF-8'); 
+
+
+//We recover from the database the image format of the qr code with id taken from input:
+
+$format
+
+
+/*To update the database we take the essential data with the collect() method and the "state" field as input. 
+We also update the "qrcode" field with the name of the file taken from input but with the same format:                                      */
+
+$data_to_db
+
+
+/*If in the folder where we save the qr code (constant "DIRECTORY") there is no file with the new name or old name (and format), 
+we proceed with the creation:                                                                                                               */
+
+if(!file_exists(...))
+
+
+//We find the row corresponding to the id taken in input with the where() method and update the row with the new data with the update() method:
+
+$db->where('id', $dynamic_id);
+$db->update('dynamic_qrcodes', $data_to_db);
+
+
+//Let's rename the qr code file previously created with the new name via PHP function rename():
+
+rename($old, $new);
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                                    </li>
+                                    
+                                    <li>
+                                        cancel() <br>
+                                        
+                                        <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>Dynamic_Qrcodes.php - cancel()
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+//We verify that the logged in user is of type "super" otherwise we print an error message:
+
+if($_SESSION['admin_type']!='super')
+    $this->failure('You don\'t have permission to perform this action');
+
+
+//We recover from the database the image format of the qr code with id taken from input:
+
+$format
+
+
+//We find the row corresponding to the id taken in input with the where() method and update the row with the new data with the delete() method:
+
+$db->where('id', $dynamic_id);
+$db->delete('dynamic_qrcodes');
+
+
+//We delete from the folder the qr code that we want to delete through the php unlink() function:
+
+unlink($file);
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                                    </li>
+                                    
+            </ul><br>
+            </div>
+            
+            <div id="static-class">
+            <h2> Static Qr code class</h2><br>
+            <strong>a) private functions
+            <ul>
+                                    <li>
+                                        collect() <br>
+                                        
+                                        <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>Static_Qrcodes.php - collect()
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+/*The function has the same purpose as the analogue already seen previously. 
+However,a "link" is not stored in this class, but the "type" of the qr code is assigned in addition to the "filename" and "created_at" fields: 
+*/
+
+$data_to_db['filename'];
+$data_to_db['created_at'];
+
+
+/*The type is assigned in the creation phase and can no longer be modified, in fact a check is made on $ _GET['type'] 
+to verify that the function has been called by add() in order to "capture" the type.
+If it is not very clear, review the section of the entry concerning static QR codes                                                         */
+
+if($_GET['type'] != NULL)
+    $data_to_db['type'] = htmlspecialchars($_GET['type']);
+
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                                    </li>
+                                    <li>
+                                        setOptions() 
+                                    </li>    
+                                    <li>
+                                        addLogo()
+                                    </li>
+                                    <li>
+                                        failure()
+                                    </li>
+                                    <li>
+                                        success()
+                                    </li>
+                                    <li>
+                                        info()
+                                    </li>
+                                    <li>
+                                        requiredFieldsError()
+                                    </li>
+                                        <li>
+                                        add() <br>
+                                        
+                                        <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>Static_Qrcodes.php - add()
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+/*The function is very similar to add() for dynamic qr code. 
+It naturally differs in the data type of the qr code, which must be encoded to be used in a query part of a URL:                            */
+
+$sData = urlencode($sData);
+
+
+/*We collect all the data necessary for the database and to build the qr code in this array 
+(in this class we also add the "content" that has been stored in the qr code):                                                              */
+
+$data_to_db;
+$data_to_db['content'] = $sContent;
+
+
+//The rest is all the same as the add() seen above...
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                                    </li>   
+            </ul><br><br>
+            <strong>b) public functions
+            <ul>
+                                    <li>
+                                        setOrderingValues()
+                                    </li>
+                                    <ul>
+                                        Methods for different types of static qr code:
+                                        <li>
+                                        textQrcode() <br>
+                                        
+                                        <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>Example - textQrcode()
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+public function textQrcode($text)
+    {
+        if($text != NULL){
+            $this->sData = $text;
+            $this->sContent = '<strong>Text:</strong> '.$text;
+            $this->add($this->sData, $this->sContent);
+        }
+        else
+            $this->requiredFieldsError();
+    }
+    
+    
+/*Each function has as parameter the data to be inserted in the qr code, some of which are mandatory depending on the type.
+
+A check is made on the mandatory data as if they were "NULL" it would mean that the user has not filled in the required field; 
+in this case it ends by printing a standard error message.
+
+Otherwise, proceed to assign to the variable (declared private) sData what will be stored in the qr code 
+(possibly accompanied by standard strings for the type of qr code requested).
+
+The sContent variable is assigned the content to be stored in the database, already in HTML format ready for printing in the table.
+
+The function add() is called (in this class it is declared private) which receives the data for the qr code 
+and the content to be stored in the database                                                                                    */
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                                    </li>
+                                    <li>
+                                    emailQrcode()    
+                                    </li>
+                                    <li>
+                                    phoneQrcode()    
+                                    </li>
+                                    <li>
+                                    smsQrcode()    
+                                    </li>
+                                    <li>
+                                    whatsappQrcode()    
+                                    </li>
+                                    <li>
+                                    skypeQrcode()    
+                                    </li>
+                                    <li>
+                                    locationQrcode()    
+                                    </li>
+                                    <li>
+                                        eventQrcode() <br>
+                                        
+                                        <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>Explanation of eventQrcode()
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+/*It is possible to create an "event" qr code which, if scanned, adds the desired event to the default calendar. 
+This is possible thanks to the .ics calendar format.
+We use a very convenient external library that automatically generates a single string to be stored in the qr code:             */
+
+$ics = new ICS(array(
+                'location' => $location,
+                'description' => $description,
+                'dtstart' => $start,
+                'dtend' => $end,
+                'summary' => $title,
+                'url' => $url
+            ));
+            
+$this->sData = $ics->to_string();
+
+/*After checking the mandatory data, the ICS class receives the event data through the array and 
+exploits the concatenation between strings through the to_string() function to generate the unique string to be stored.         */
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                                    </li>
+                                    <li>
+                                        vcardQrcode() <br>
+                                        
+                                        <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>Explanation of vcardQrcode()
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+//Operation similar to eventQrcode() through the aid of an external library to generate the vCard 4.0 string to be stored.
+
+$vcard = new vCard;
+    $vcard->name($fullname);
+    $vcard->nickName($nickname); 
+    $vcard->email($email); 
+    $vcard->url($website); 
+    $vcard->cellPhone($phone); 
+    $vcard->homePhone($home_phone); 
+    $vcard->workPhone($work_phone); 
+    $vcard->organization($company); 
+    $vcard->role($role); 
+    $vcard->categories($categories); 
+    $vcard->note($note); 
+    $vcard->photo($photo); 
+    $vcard->address($address, $city, $postcode, $state); 
+    $vcard->create();
+            
+$this->sData = $vcard->get();
+
+
+/*After checking the mandatory data, for each field a special function is called which concatenates all the information 
+in a single string. It is retrieved through the get() function.                                                                 */
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                                    </li>
+                                    <li>
+                                    bookmarkQrcode()    
+                                    </li>
+                                    <li>
+                                    wifiQrcode()    
+                                    </li>
+                                    <li>
+                                    paypalQrcode()    
+                                    </li>
+                                    <li>
+                                    bitcoinQrcode()    
+                                    </li>
+                                    </ul>
+                                    <li>
+                                    edit() same operation of the analogous function for dynamic qr code
+                                    </li>
+                                    <li>
+                                    cancel() same operation of the analogous function for dynamic qr code
+                                    </li>
+            </ul><br>
+            </div>
+
+            <div id="dashboard">
+                <h2>Dashboard</h2>
+                <p>The dashboard is the main page of the script. In this section there is a counter of the total number of qr code in the database, and in particular also the number of dynamic and static ones. There is also a counter regarding the number of <strong>scans of the dynamic qr code</strong>.<br>
+                    The script offers 2 examples of dynamic charts created with chart.js
+The first shows a weekly report of the number of qr codes created (dynamic and static), the second graph offers an overview of the number of scans of dynamic qr codes.
+                </p>
+                <ol>
+                    <li>Report of qr code</li>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>Dashboard
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+//The values are determined by counting the number of lines through the getValue library function:
+
+$db->getValue ("table_name", "count(*)");
+
+
+//A custom query is available for the value of the scans that sum all the values of the scan column:
+
+$db->query("SELECT sum(scan) FROM dynamic_qrcodes");
+                            </xmp>
+                        </pre>
+                    </div>
+                    
+                    <li>Chart</li>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>Chart code - PHP
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+//For the first chart I select the "created_at" column (of the dynamic and static qr code tables) with a value between the current date and 7 days less:
+
+$db->query("select `created_at`, `scan` from "table_name" where `created_at` > curdate()-7;");
+
+
+/*I also select the "scan" column with the same criteria because I will need it for the second graph.
+I scan the entire array and through a switch having as expression the substring of type YYYY-MM-DD of the results extracted from the database.
+N.B. In our database we store the "created_at" field also with the date and time because it is useful for sorting the qr code:                          */
+
+foreach ($result as $row) {
+    switch (substr($row['created_at'],0,10)){
+    case 
+    ...
+    }
+}    
+                            </xmp>
+                        </pre>
+                        
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>Chart code - JS
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+/*For the complete functioning of the chart.js library visit the link in the documentation.
+The js codes of the graphs are found in the <footer> tag. We make a graph dynamic by modifying the "labels" attribute and the "data" attribute 
+with values obtained from database.                                                                                                                     */
+
+//In particular for "labels" we print 7 dates in the format YYYY-MM-DD.
+
+
+<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d'),date('Y'))); ?>
+<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d') - 1,date('Y'))); ?>
+<?php echo date("Y-m-d",mktime(0,0,0,date('m'),date('d') - 2,date('Y'))); ?>
+...
+
+
+//Then for the "date" attribute we print the variables obtained from the previous calculations, for example:
+
+<?php echo $dynamic_sixday ?>           
+<?php echo $static_today ?>             
+<?php echo $scan_twoday ?>
+                            </xmp>
+                        </pre>
+                    </div>
+                </ol>
+            </div>   
+            
+            <div id="list-all">
+                <h2>List All</h2>
+                <p><strong>The structure of the code for the listing process is the same for all types of QR code</strong>. Below there is an example for dynamic qr codes.<br>
+                There is a main page, in this case <strong>dynamic_qrcodes.php</strong>, which contains the code to retrieve the data necessary for the table and an external page called <strong>search_order.php</strong> which implements functions for searching and sorting the qr code.<br>
+                The HTML code includes: the <strong>flash_message.php</strong> file for managing the various messages to be printed,
+the <strong>filters.php</strong> file for managing the search and sorting filters and the <strong>dynamic_table.php</strong> file with the code that creates the entire table.
+                </p>
+                <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>dynamic_qrcodes.php
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+//We retrieve the database instance and define which columns to extract from the database for the table we need:
+
+$db = getDbInstance();
+$select = array('id', 'filename', 'identifier', 'link', 'qrcode', 'scan', 'created_at', 'updated_at');
+
+
+/*We define the parameters with which it is possible to sort the qr codes in the table.
+N.B. The parameters for ascending and descending sorting are always included separately in addition to those chosen by us.                              */
+
+$search_fields = array('filename', 'identifier', 'link');
+require_once BASE_PATH . '/includes/search_order.php';
+
+
+/*We use the variable $page to keep track of the page where we are. 
+By default the value is "1" and we need it because we can set an element limit for each page with a special library function:                           */
+
+$page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?? 1;
+$db->pageLimit = 15;
+
+
+//We build the pagination with the elements extracted from the database through a convenient library function:
+
+$rows = $db->arraybuilder()->paginate('dynamic_qrcodes', $page, $select);
+$total_pages = $db->totalPages;
+                            </xmp>
+                        </pre>
+                    </div>
+                    
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>dynamic_table.php
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+//We define the dimensions for each column. Example:
+<thead>
+    <tr>
+        <th width="5%">ID</th>
+        <th width="15%">Filename</th>
+        <th width="18%">Unique redirect identifier</th>
+        ...
+    </tr>
+</thead>
+
+
+//We print the entire array of results extracted from the database in the respective columns. Example:
+
+<tbody>
+    <?php foreach ($rows as $row): ?>
+    <tr>
+        <td><?php echo $row['id']; ?></td>
+        <td><?php echo htmlspecialchars($row['filename']); ?></td>
+        <td><?php echo htmlspecialchars($row['identifier']); ?></td>
+        ...
+        <td>
+/*The script includes 3 operations: modification, cancellation, download of the qr code. All 3 have their own button but the modification operation 
+refers to an external link, the cancellation is managed through a "modal fade" within the same page, while the HTML "download" attribute 
+is simply used for the download:                                                                                                                    */
+
+<!-- EDIT -->
+    <a href="edit_dynamic.php?filename=<?php echo $row['filename']; ?>&dynamic_id=<?php echo $row['id']; ?>&operation=edit" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+    
+<!-- DELETE -->
+    <a href="#" class="btn btn-danger delete_btn" data-toggle="modal" data-target="#confirm-delete-<?php echo $row['id']; ?>"><i class="fas fa-trash"></i></a>
+                    
+<!-- DOWNLOAD -->
+    <a href="<?php echo PATH.htmlspecialchars($row['qrcode']); ?>" class="btn btn-primary" download><i class="fa fa-download"></i></a>
+    
+        </td>
+    </tr>
+/*For cancellation, the modal uses an external page (in this case delete_dynamic.php) using a form within the main page 
+that includes two hidden input fields: filename, del_id. Before confirming the cancellation, a different message is shown depending on the type of QR code.
+*/
+
+//We conclude the end of printing the elements and the table body:
+
+<?php endforeach; ?>
+</tbody>
+                            </xmp>
+                        </pre>
+                    </div>
+                </ol>
+            </div>   
+                
+            <div id="insertion-dynamic">
+                <h2>How does the insertion of a dynamic qr code work?</h2>
+                <p>The main page dedicated to the insertion is <strong>add_dynamic.php</strong> the form HTML-tag is also declared on this page, however the input fields are separated in another page called <strong>add_dynamic_form.php</strong> for a matter of code reusability</p>
+                <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>add_dynamic.php 
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+//Let's create an instance of the class for the dynamic Qr code we discussed earlier:
+
+require_once BASE_PATH . '/lib/Dynamic_Qrcode/Dynamic_Qrcode.php';
+$dynamic_qrcode = new Dynamic_Qrcode();
+
+
+//We verify that the form has been sent with the POST method and we call the add() function shown above:
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST')
+    $dynamic_qrcode->add();
+
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                    
+                <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>add_dynamic_form.php 
+                        </div>
+                        <pre class="prettyprint  lang-html">
+                            <xmp>
+/*The input fields are recognized by the class through the "name" attribute. For example, the underlying input creates the "colorpicker" tool 
+whose data will be sent and processed by the class with the name (attribute) "foreground" and the chosen value "value":                                 */
+
+<input type="text" class="form-control" id="foreground" name="foreground" value="#000000">
+
+
+//Similarly, there are some types of selection inputs with different options. The input is sent with a "name" and with a "value":
+
+<select name="level" class="form-control">
+    <option value="L">L - Smallest</option>
+    <option value="M">M - Medium</option>
+    <option value="Q">Q - High</option>
+    <option value="H">H - Best</option>
+</select>
+
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+            </div>
+            
+            <div id="insertion-static">
+                <h2>How does the insertion of a static qr code work?</h2>
+                <p>The main page dedicated to the insertion is <strong>add_static.php</strong> Unlike the previous creation page, the one for static qr codes does not provide a single form HTML-tag but each type of static qr code has its own form. For the input fields there is a secondary page called <strong>add_static_form.php</strong> which contains the menu of the various types of qr code that can be created and for each card (for each type) another file is included with the individual input fields, for example <strong>text.php</strong></p>
+                <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>add_static.php 
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+//Let's create an instance of the class for the static Qr code we discussed earlier:
+
+require_once BASE_PATH . '/lib/Static_Qrcode/Static_Qrcode.php';
+$static_qrcode = new Static_Qrcode();
+
+
+/*We verify that the form has been sent with the POST method and with a control switch we examine the type of qr code that you want to create 
+through $ _GET ['type'] present in the link after sending the corresponding form. Each type corresponds to a different class method 
+that sends as parameters the input data of the form with the POST method. Example with the type "text":                                                 */
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    switch($_GET['type']){
+        case 'text':    $static_qrcode->textQrcode($_POST['text']); break;
+        ...
+    }
+}
+
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                    
+                <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>add_static_form.php 
+                        </div>
+                        <pre class="prettyprint  lang-html">
+                            <xmp>
+/*Within this page there is a menu divided into tabs in which each contains a different form depending on the type of static qr code to create.
+Example with "text" type:                                                                                                                               */
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="pill" href="#text" role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Text 
+            <i class="fas fa-align-left"></i>
+        </a>
+    </li>
+    ...
+</ul>
+
+<div class="tab-content" >
+    <div class="tab-pane fade show active" id="text" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
+        <?php include BASE_PATH . '/forms/static/text.php'; ?>      
+    </div>
+    ...
+</div>
+                </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                
+                <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>text.php 
+                        </div>
+                        <pre class="prettyprint  lang-html">
+                            <xmp>
+/*Each page relating to a type of qr code has the same structure. In particular, it is characterized by a form which once sent provides the input data 
+to the main creation page with the type inside the link (?type=), the options to customize the qr code and the individual input fields different from 
+type to type. Example for "text" type:                                                                                                                  */
+
+<form class="form" action="./add_static.php?type=text" method="post" id="static_form" enctype="multipart/form-data">
+    <?php include BASE_PATH.'/forms/qrcode_options.php'; ?>
+<!-- Input forms -->
+</form>
+                </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                </div>
+                
+                <div id="edit">
+                <h2>How does the modification of a qr code work?</h2>
+                <p><strong>The modification process is essentially the same for both types of QR code.</strong><br>
+For <strong>dynamic qr code</strong> is possible to change: the file name, the url and is possible to enable or disable the redirect when the qr code is scanned. It is not possible to change the image format of the QR code as well as its unique identifier.<br>
+For <strong>static qr codes</strong> is only possible to change the file name, since by definition a static qr code cannot be changed in its content. The image format of the qr code cannot be changed.<br>
+Below there is an example of the modification process for dynamic qr code, which I repeat is the same for both types.<br>
+The main page dedicated to the edit is <strong>edit_dynamic.php</strong> the form HTML-tag is also declared on this page, however the input fields are separated in another page called <strong>edit_dynamic_form.php</strong> for a matter of code reusability.
+</p>
+                <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>edit_dynamic.php 
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+//Let's create an instance of the class for the Dynamic Qr code we discussed earlier
+
+require_once BASE_PATH . '/lib/Dynamic_Qrcode/Dynamic_Qrcode.php';
+$dynamic_qrcode = new Dynamic_Qrcode();
+
+
+/*We retrieve from the link the id of the qr code and the requested operation (edit). I chose to add this additional parameter 
+because from the qr code table it is possible to add different operations for each one.                                                                 */
+
+$dynamic_id = htmlspecialchars($_GET['dynamic_id'], ENT_QUOTES, 'UTF-8');
+$operation = htmlspecialchars($_GET['operation'], ENT_QUOTES, 'UTF-8');
+
+
+//We verify that the form has been sent with the POST method and we call the edit() function shown above:
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+    $dynamic_qrcode->edit();
+    
+//If the requested operation is edit, we retrieve the information needed to fill in the edit form through the id of the qr code:
+
+if ($edit){
+    $db->where('id', $dynamic_id);
+    $dynamic_qrcode = $db->getOne('dynamic_qrcodes');
+}
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                    
+                <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>edit_dynamic_form.php 
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+/*The input fields are similar throughout the script. What changes is the declaration of the "value" attribute. 
+In fact, the value is retrieved from the database only if the edit operation has been chosen:                                                           */
+
+<input type="text" name="identifier" value="<?php echo htmlspecialchars($edit ? $dynamic_qrcode['identifier'] : '', ENT_QUOTES, 'UTF-8'); ?>">
+                </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                </div>
+                
+                <div id="delete">
+                <h2>How does the deletion of a qr code work?</h2>
+                <p><strong>The deletion process is essentially the same for both types of QR code.</strong> It is a very simple process, here is an example for <strong>static qr codes</strong>.<br>
+There is a single <strong>delete_dynamic.php</strong> delete page which is reached through a unique link for each element in the qr code table.
+</p>
+                <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>delete_dynamic.php 
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+//Let's create an instance of the class for the Static Qr code we discussed earlier:
+
+require_once BASE_PATH . '/lib/Static_Qrcode/Static_Qrcode.php';
+$static_qrcode = new Static_Qrcode();
+
+
+/*We verify that the form has been sent with the POST method and we call the cancel() function shown above. 
+To this function we send as parameters the id of the qr code and the name of the file                                                                   */
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST')
+    $static_qrcode->cancel($_POST['del_id'], $_POST['filename']);
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                </div>
+                
+                <div id="read">
+                <h2>What happens when i scan a dynamic qr code?</h2>
+                <p>The dynamic QR code reading process is quite simple. There is a single <strong>read.php</strong> page that does all the operations.
+By default this page is located outside the main directory, however with your modifications it is possible to change its location. Instead, it is easier to change the name of this page, taking care to change the name also in the classes where the qr code is generated
+                </p>
+                <ol>
+                    <div class="editor ml-20">
+                        <div class="editor-title">
+                            <div class="controls">
+                                <span class="control control-1"></span>
+                                <span class="control control-2"></span>
+                                <span class="control control-3"></span>
+                            </div>read.php 
+                        </div>
+                        <pre class="prettyprint  lang-php">
+                            <xmp>
+//Each link is generated in the form /read.php?id=xxxxx, so we retrieve the present id:
+
+$get_id = htmlspecialchars($_GET['id'], ENT_QUOTES, 'UTF-8');
+
+
+//We retrieve the database instance and select the link associated with the unique id as well as its status (enabled or disabled):
+
+$db = getDbInstance();
+$state = $db->query("SELECT state FROM dynamic_qrcodes WHERE identifier='$get_id'");
+$link = $db->query("SELECT link FROM dynamic_qrcodes WHERE identifier='$get_id'");
+
+
+//We increase the scan field since the qr code has just been scanned:
+
+$update = $db->query("UPDATE dynamic_qrcodes SET scan=scan+1 WHERE identifier='$get_id'");
+
+
+/*If the qr code is enabled we proceed with a normal HTML redirect towards the associated link; otherwise we print a simple message
+informing the user that the link is disabled:                                                                                                           */
+
+if($state[0]['state'] == 'enable'){
+        echo '<meta http-equiv="refresh" content="0; URL='.$link[0]['link'].'" />';         
+        echo 'Loading...';                                                                  
+}
+else
+    echo 'Disabled link';
+    
+    
+//N.B. Any custom pages to show during the redirect are not included in this script.
+                            </xmp>
+                        </pre>
+                    </div>
+                    </ol>
+                </div>
+                
+                <div id="extra">
+                <h2>EXTRA</h2>
+                <p>My script is in constant development and I hope to expand it from time to time with more and more useful features, so stay tuned for the updates.<br> With the first version, in the classes that realize the 2 types of qr code, an additional method not mentioned in the above documentation called <strong>addLogo()</strong> is included.
+
+To add this functionality you need to delete the comment characters inside the class and add the input fields to the forms for the user to upload the logo.
+
+However, this feature is not recommended as it can cause different QR code scanning errors depending on the scanner applications.
+                </p>
+                </div>
+            
+            <div id="changelog">
+                <h2>Updates</h2>
+                <ul>
+                    <!--
+					<li>Version 1.1 – date</li>
+					<ul>
+						<li>Bug Fixes</li>
+						
+						<h3>Files Affected</h3>
+						<li>es.html</li>
+						<li>es.html</li>
+	
+					</ul>
+					
+					<br>-->
+                    <li>Version 1.0 –  September, 2020 (Initial release)</li>
+                    
+                </ul>
+
+            </div>
+
+            <div id="support">
+                <h2>Support</h2>
+				<div class="wrapper">
+				<div class="alert alert-success alert-dismissible" role="alert">
+                If you have any question please feel free to email me at <strong><a href="mailto:info@giandonatoinverso.it?Subject=Dynamic%20Qrcode" target="_top">info@giandonatoinverso.it</a></strong>
+                  </div>
+				   <p>Please don't forget to rate my script on GitHub.
+				      <br>
+                    <br>Thank You, <b><br><br> Giandonato Inverso</b></p>
+            </div>
+        </div>
+    </div>
+    <!-- Main Panel End -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <script src="assets/jquery.easing.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script src="assets/run_prettify.js"></script>
+    <script src="assets/custom.js"></script>
+
+</body>
+</html>
