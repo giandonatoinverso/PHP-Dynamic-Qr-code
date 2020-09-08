@@ -5,4 +5,52 @@
 
 <h1>Features</h1>
 
+<ul>
+<li>Create unlimited Qr code</li>
+<li>Easy installation wizard</li>
+<li>Control panel with 2 access levels</li>
+<li>Dashboard with advanced statistics on Qr code created and on scans</li>
+<li>Dynamic Qr code</li>
+<ul>
+<li>Create, modify and delete Qr codes</li>
+<li>You can download yours Qr codes when you want</li>
+<li>URL shortener with redirect</li>
+<li>Enable or disable the link redirect</li>
+</ul>
+<li>Static Qr code</li>
+<ul>
+<li>Text QR Code</li>
+<li>Email QR Code</li>
+<li>Phone QR Code</li>
+<li>Sms QR Code</li>
+<li>Whatsapp QR Code</li>
+<li>Skype QR Code</li>
+<li>Location QR Code</li>
+<li>Vcard QR Code</li>
+<li>Event/calendar QR Code</li>
+<li>Bookmark QR Code</li>
+<li>Wifi QR Code</li>
+<li>Paypal QR Code</li>
+<li>Bitcoin QR Code</li>
+</ul>
+<li>Customization of Qr codes</li>
+<ul>
+<li>6 formats for images</li>
+<li>Foreground color</li>
+<li>Background color</li>
+<li>4 level of precision</li>
+<li>10 sizes</li>
+</ul>
+<li>Responsive bootstrap-based design</li>
+<li>Easy to understand and expand code</li>
+<li>Full OOP with classes and well documented</li>
+</ul>
+<h2>What is included</h2>
+<ul>
+<li>PHP files</li>
+<li>.sql file with sample data</li>
+<li>JS files</li>
+<li>CSS files</li>
+<li>detailed code documentation</li>
+</ul>
 
