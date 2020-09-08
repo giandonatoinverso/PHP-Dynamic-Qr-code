@@ -55,4 +55,8 @@
 <li>CSS files</li>
 <li>detailed code documentation</li>
 </ul>
+<h2>Updates</h2>
+<ul>
+<li>Version 1.0 – September, 2020 (Initial release)</li>
+</ul>
 
