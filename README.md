@@ -3,6 +3,6 @@
 
 <p style="font-size: 200px"><a href="https://giandonatoinverso.it/qrcode" target="_blank">DEMO HERE</a></p>
 
-<h2>Features</h2>
+<h1>Features</h1>
 
 
