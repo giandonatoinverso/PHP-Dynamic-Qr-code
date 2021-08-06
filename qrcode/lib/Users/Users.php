@@ -17,10 +17,11 @@ class Users
      *
      */
     public function __construct()
-    {   
+    {
         // Only super admin is allowed to access this page
-        if ($_SESSION['admin_type'] !== 'super')
+        if ($_SESSION['admin_type'] !== 'super') {
             $this->failure('Only a "super admin" account can access the admin listing page', 'Location: index.php');
+        }
     }
 
     /**
@@ -38,7 +39,8 @@ class Users
         $ordering = [
             'id' => 'ID',
             'user_name' => 'Username',
-            'admin_type' => 'Admin Type'
+            'admin_type' => 'Admin Type',
+            'email' => 'Email',
         ];
 
         return $ordering;
@@ -50,7 +52,7 @@ class Users
     public function collect()
     {
         // Sanitize input post if we want
-	    $data_to_db = filter_input_array(INPUT_POST);
+        $data_to_db = filter_input_array(INPUT_POST);
 
         return $data_to_db;
     }
@@ -61,12 +63,28 @@ class Users
     public function check($data_to_db)
     {
         // Check whether the user name already exists
-	    $db = getDbInstance();
-	    $db->where('user_name', $data_to_db['user_name']);
-	    $db->get('admin_accounts');
+        $db = getDbInstance();
+        $db->where('user_name', $data_to_db['user_name']);
+        $db->get('admin_accounts');
 
-	    if ($db->count >= 1)
-		    $this->failure('Username already exists');
+        if ($db->count >= 1) {
+            $this->failure('Username already exists');
+        }
+    }
+
+    /**
+     * Check username
+     */
+    public function check_email($data_to_db)
+    {
+        // Check whether the user name already exists
+        $db = getDbInstance();
+        $db->where('email', $data_to_db['email']);
+        $db->get('admin_accounts');
+
+        if ($db->count >= 1) {
+            $this->failure('Email already exists');
+        }
     }
     
     /**
@@ -76,62 +94,78 @@ class Users
     {
         $data_to_db = $this->collect();
         $this->check($data_to_db);
+        $this->check_email($data_to_db);
         
         // Encrypting the password
-	    $data_to_db['password'] = password_hash($data_to_db['password'], PASSWORD_DEFAULT);
-	    // Reset db instance
-	    $db = getDbInstance();
-	    $last_id = $db->insert('admin_accounts', $data_to_db);
+        $data_to_db['password'] = password_hash($data_to_db['password'], PASSWORD_DEFAULT);
+        // Reset db instance
+        $db = getDbInstance();
+        $last_id = $db->insert('admin_accounts', $data_to_db);
 
-	    if ($last_id)
-		    $this->success('Admin user added successfully');
-		
+        if ($last_id) {
+            $this->success('Admin user added successfully');
+        }
     }
     
     /**
      * Edit user
-     * 
+     *
      */
     public function edit()
     {
         $data_to_db = $this->collect();
-        
+        $admin_user_id = $_GET['admin_user_id'];
+        $operation = $_GET['operation'];
         // Check whether the user name already exists
-	    $db = getDbInstance();
-	    $db->where('user_name', $data_to_db['user_name']);
-	    $db->where('id', $admin_user_id, '!=');
-	    $row = $db->getOne('admin_accounts');
+        $db = getDbInstance();
+        $db->where('user_name', $data_to_db['user_name']);
+        $db->where('id', $admin_user_id, '!=');
+        $row = $db->getOne('admin_accounts');
 
-	    if (!empty($row['user_name']))
-	    {
-		    $query_string = http_build_query(array(
-			    'admin_user_id' => $admin_user_id,
-			    'operation' => $operation,
-		    ));
-		    $this->failure('Username already exists', 'Location: edit_admin.php?'.$query_string);
-	    }
+        if (!empty($row['user_name'])) {
+            $query_string = http_build_query(array(
+                'admin_user_id' => $admin_user_id,
+                'operation' => $operation,
+            ));
+            $this->failure('Username already exists', 'Location: edit_admin.php?'.$query_string);
+        }
 
-	    $admin_user_id = filter_input(INPUT_GET, 'admin_user_id', FILTER_VALIDATE_INT);
-	    // Encrypting the password
-	    $data_to_db['password'] = password_hash($data_to_db['password'], PASSWORD_DEFAULT);
-	    // Reset db instance
-	    $db = getDbInstance();
-	    $db->where('id', $admin_user_id);
-	    $stat = $db->update('admin_accounts', $data_to_db);
+        // Check whether the user name already exists
+        $db = getDbInstance();
+        $db->where('email', $data_to_db['email']);
+        $db->where('id', $admin_user_id, '!=');
+        $row = $db->getOne('admin_accounts');
         
-        if ($stat)
+        if (!empty($row['email'])) {
+            $query_string = http_build_query(array(
+                'admin_user_id' => $admin_user_id,
+                'operation' => $operation,
+            ));
+            $this->failure('Email already exists', 'Location: edit_admin.php?'.$query_string);
+        }
+
+        $admin_user_id = filter_input(INPUT_GET, 'admin_user_id', FILTER_VALIDATE_INT);
+        // Encrypting the password
+        $data_to_db['password'] = password_hash($data_to_db['password'], PASSWORD_DEFAULT);
+        // Reset db instance
+        $db = getDbInstance();
+        $db->where('id', $admin_user_id);
+        $stat = $db->update('admin_accounts', $data_to_db);
+        
+        if ($stat) {
             $this->success('User updated successfully!');
-        else
+        } else {
             $this->failure('Failed to update Admin user: ' . $db->getLastError());
+        }
     }
     
     /**
      * Delete user
-     * 
+     *
      */
     public function cancel($del_id)
     {
-        if($_SESSION['admin_type']!='super'){
+        if ($_SESSION['admin_type']!='super') {
             header('HTTP/1.1 401 Unauthorized', true, 401);
             exit("401 Unauthorized");
         }
@@ -140,10 +174,11 @@ class Users
         $db->where('id', $del_id);
         $stat = $db->delete('admin_accounts');
 
-        if ($stat)
+        if ($stat) {
             $this->info('User deleted successfully!');
-        else
+        } else {
             $this->failure('Unable to delete user');
+        }
     }
     
     /**
@@ -155,7 +190,7 @@ class Users
         // Redirect to the listing page
         header($location);
         // Important! Don't execute the rest put the exit/die.
-    	exit();
+        exit();
     }
     
     /**
@@ -167,7 +202,7 @@ class Users
         // Redirect to the listing page
         header('Location: admin_users.php');
         // Important! Don't execute the rest put the exit/die.
-    	exit();
+        exit();
     }
     
     /**
@@ -179,7 +214,6 @@ class Users
         // Redirect to the listing page
         header('Location: admin_users.php');
         // Important! Don't execute the rest put the exit/die.
-    	exit();
+        exit();
     }
 }
-?>

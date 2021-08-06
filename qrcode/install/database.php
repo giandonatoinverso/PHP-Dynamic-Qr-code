@@ -133,8 +133,8 @@ if (isset($_POST["btn_install"])) {
 													   value="<?php echo @$db_name; ?>" required>
 											</div>
 											<div class="form-group">
-												<label for="email">Username</label>
-												<input type="text" class="form-control form-input" name="db_user" placeholder="Username"
+												<label for="email">Nombre de usuario</label>
+												<input type="text" class="form-control form-input" name="db_user" placeholder="Nombre de usuario"
 													   value="<?php echo @$db_user; ?>" required>
 											</div>
 											<div class="form-group">

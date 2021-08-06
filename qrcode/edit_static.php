@@ -36,7 +36,7 @@ if ($edit)
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <title>Edit static - Qrcode Generator</title>
+    <title>Edit static - Expression Way</title>
     <head>
     <?php include './includes/head.php'; ?>
     </head>
@@ -58,7 +58,7 @@ if ($edit)
         <div class="row mb-2">
             
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Edit Qr codes</h1>
+            <h1 class="m-0 text-dark">Editar códios QR</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -74,14 +74,14 @@ if ($edit)
         <div class="container-fluid">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Enter the requested data</h3>
+                    <h3 class="card-title">Introduce los datos requeridos</h3>
                 </div>
                 <form class="form" action="" method="post" id="static_form" enctype="multipart/form-data">
                     <div class="card-body">
                         <?php include BASE_PATH.'/forms/edit_static_form.php'; ?>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
                     </div>
                 </form>
             </div>

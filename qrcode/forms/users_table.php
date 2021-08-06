@@ -6,9 +6,9 @@
         <thead>
             <tr>
                 <th width="5%">ID</th>
-                <th width="45%">Username</th>
-                <th width="40%">Admin type</th>
-                <th width="10%">Actions</th>
+                <th width="45%">Nombre de usuario</th>
+                <th width="40%">Tipo</th>
+                <th width="10%">Acciones</th>
             </tr>
         </thead>
         <tbody>

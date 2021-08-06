@@ -1,7 +1,7 @@
 <div class="col-sm-12 mb-2">
         <div class="row">
             <div class="col-6 col-md-3">
-                <label for="foreground">Foreground:</label>
+                <label for="foreground">Color principal:</label>
                 <div class="input-group my-colorpicker2">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-qrcode"></i></span>
@@ -12,7 +12,7 @@
             </div>
                   
             <div class="col-6 col-md-3">
-                <label for="background">Background:</label>
+                <label for="background">Color fondo:</label>
                 <div class="input-group my-colorpicker2">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-qrcode"></i></span>
@@ -23,7 +23,7 @@
             </div>
                   
             <div class="col-6 col-md-3">
-                <label for="level">Precision</label>
+                <label for="level">Precisión</label>
                 <select name="level" class="form-control">
                     <option value="L">L - Smallest</option>
                     <option value="M">M - Medium</option>
@@ -33,7 +33,7 @@
             </div>
         
             <div class="col-6 col-md-3">
-                <label for="size">Size (px)</label>
+                <label for="size">Tamaño (px)</label>
                 <select name="size" class="form-control">
                     <option value="100">100</option>
                     <option value="200">200</option>
@@ -61,7 +61,7 @@
   <div class="row">    
     <div class="col-sm-4">
         <div class="form-group">
-            <label for="filename">Filename *</label>
+            <label for="filename">Nombre *</label>
             <input type="text" name="filename" value="" placeholder="My first Qrcode" class="form-control error" required="required" id = "filename">
           
         </div>

@@ -5,25 +5,28 @@
       <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th width="5%">ID</th>
-                <th width="15%">Filename</th>
-                <th width="18%">Unique redirect identifier</th>
-                <th width="36%">URL</th>
                 <th width="8%">Qr code</th>
+                <th width="15%">Nombre</th>
+                <th width="10%">Identificador</th>
+                <th width="20%">URL</th>
+                <th width="10%">Creado por</th>
+                <th width="20%">Used For</th>
                 <th width="5%">Scan</th>
-                <th width="23%">Operations</th>
+                <th width="23%">Operaciones</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($rows as $row): ?>
             <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo htmlspecialchars($row['filename']); ?></td>
-                <td><?php echo htmlspecialchars($row['identifier']); ?></td>
-                <td><?php echo htmlspecialchars($row['link']); ?></td>
                 <td>
                     <?php echo '<img src="'.PATH.htmlspecialchars($row['qrcode']).'" width="100" height="100">'; ?>
                 </td>
+                <td><?php echo htmlspecialchars($row['filename']); ?></td>
+                <td><?php echo htmlspecialchars($row['identifier']); ?></td>
+                <td><?php echo htmlspecialchars($row['link']); ?></td>
+                <td><?php echo htmlspecialchars($row['user_name']); ?></td>
+                <td><?php echo htmlspecialchars($row['used_for']); ?></td>
+                
                 <td><?php echo htmlspecialchars($row['scan']); ?></td>
                 <td>
                     

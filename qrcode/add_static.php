@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 <!DOCTYPE html>
 <html lang="en">
-    <title>Add static - Qrcode Generator</title>
+    <title>Add static - Expression Way</title>
     <head>
     <?php include './includes/head.php'; ?>
     </head>
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
       <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Enter the requested data</h3>
+                <h3 class="card-title">Introduce los datos requeridos</h3>
             </div>
                 <div class="card-body">
                 <?php include BASE_PATH.'/forms/add_static_form.php'; ?>

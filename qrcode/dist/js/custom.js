@@ -38,7 +38,7 @@
   ]
 
   $container.append(
-    '<h5>Customize</h5><hr class="mb-2"/>'
+    '<h5>Personalizar</h5><hr class="mb-2"/>'
   )
 
   var $no_border_checkbox = $('<input />', {

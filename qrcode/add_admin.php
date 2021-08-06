@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 
 <!DOCTYPE html>
 <html lang="en">
-    <title>Add admin - Qrcode Generator</title>
+    <title>Add admin - Expression Way</title>
     <head>
     <?php include './includes/head.php'; ?>
     </head>
@@ -63,14 +63,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Enter the requested data</h3>
+                    <h3 class="card-title">Introduce los datos requeridos</h3>
                 </div>
 	            <form class="well form-horizontal" action="" method="post" id="contact_form" enctype="multipart/form-data">
 	                <div class="card-body">
 		                <?php include BASE_PATH . '/forms/users_form.php'; ?>
 		            </div>
 	                <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
                     </div>
                 </form>
             </div>

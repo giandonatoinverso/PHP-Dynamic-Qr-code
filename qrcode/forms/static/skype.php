@@ -11,7 +11,7 @@
 <div class="col-sm-12 mb-2">
     <div class="row">
         <div class="col-6 col-md-3">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
         </div>    
     </div>
 </div>

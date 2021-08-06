@@ -6,8 +6,8 @@
 
   <!-- Main Footer -->
   <footer class="main-footer text-sm">
-    <strong>Copyright &copy; 2020 <a href="#">PHP Qrcode Generator</a> - </strong>
-    All rights reserved by Giandonato Inverso.
+    <strong>Copyright &copy; 2021 <a href="https://victorcordoba.com">CARMELO COTÓN</a> - </strong>
+    Desarrollado por Víctor Córdoba
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 1.0.0
     </div>
