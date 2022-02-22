@@ -9,7 +9,7 @@
 						    <!-- SEARCH -->
 							<div class="col-5 col-md-2">
 								<div class="input-group">
-									<input type="text" class="form-control" placeholder="Search" id="input_search" name="search_str" value="<?php echo htmlspecialchars($search_str, ENT_QUOTES, 'UTF-8'); ?>">
+									<input type="text" class="form-control" placeholder="Search" id="input_search" name="search_str" value="<?php echo htmlspecialchars($search_str??'', ENT_QUOTES, 'UTF-8'); ?>">
 									<div class="input-group-append">
 										<span class="input-group-text">
 											<i class="fas fa-search"></i>
