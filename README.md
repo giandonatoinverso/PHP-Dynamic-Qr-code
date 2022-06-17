@@ -54,6 +54,7 @@
 <li>JS files</li>
 <li>CSS files</li>
 <li>detailed code documentation</li>
+<li>Supported php version <= 7.1</li>
 </ul>
 <h2>Updates</h2>
 <ul>
