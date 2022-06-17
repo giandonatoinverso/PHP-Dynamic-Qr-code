@@ -46,6 +46,7 @@
 <li>Responsive bootstrap-based design</li>
 <li>Easy to understand and expand code</li>
 <li>Full OOP with classes and well documented</li>
+<li>Supported php version <= 7.1</li>
 </ul>
 <h2>What is included</h2>
 <ul>
@@ -54,7 +55,6 @@
 <li>JS files</li>
 <li>CSS files</li>
 <li>detailed code documentation</li>
-<li>Supported php version <= 7.1</li>
 </ul>
 <h2>Updates</h2>
 <ul>
