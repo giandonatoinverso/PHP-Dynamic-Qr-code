@@ -2,12 +2,12 @@ FROM php:7.4.21-apache
 ENV APP_VERSION=1.0.0
 
 RUN apt-get update && \
-    apt-get install -y less nano tini curl tar git zip unzip && \
+    apt-get install -y --no-install-recommends less nano tini curl tar git zip unzip && \
     #echo "**** # To install networking tools for testing purpose ****" && \
-    apt-get install -y iputils-ping dnsutils net-tools procps
+    apt-get install -y --no-install-recommends iputils-ping dnsutils net-tools procps && \
     #echo "**** cleanup ****" && \
-    #apt-get autoremove -y && \
-    #apt-get clean -y
+    apt-get autoremove -y && \
+    apt-get clean -y
 
 # curl -SL -o app.tar.gz "https://github.com/giandonatoinverso/PHP-Dynamic-Qr-code/archive/${APP_VERSION}.tar.gz"  \
 RUN curl -SL -o app.tar.gz "https://github.com/giandonatoinverso/PHP-Dynamic-Qr-code/archive/refs/heads/master.tar.gz"  \
@@ -17,7 +17,7 @@ RUN curl -SL -o app.tar.gz "https://github.com/giandonatoinverso/PHP-Dynamic-Qr-
     && rm app.tar.gz
 
 RUN apt-get update
-RUN apt-get install -y libzip-dev libjpeg62-turbo-dev libpng-dev libfreetype6-dev
+RUN apt-get install -y --no-install-recommends libzip-dev libjpeg62-turbo-dev libpng-dev libfreetype6-dev
 
 # install composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
