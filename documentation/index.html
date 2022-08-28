@@ -67,7 +67,7 @@
 
         <div class="title" id="header">
             <h1>PHP Dynamic Qr code - Generator of dynamic and static Qr code V1.0</h1>
-            <small> Documentation - Version 1.0 / Created: 24/08/2020 Last Update: </small>
+            <small> Documentation - Version 1.0 / Created: 24/08/2020 Last Update: 28/08/2022</small>
         </div>
 
         <div class="wrapper">
@@ -86,18 +86,12 @@
             <h2> Installation</h2>
             <p>Follow these steps to install the script:</p>
             <ol><strong>
-                <li>Extract the zip archive to your server</li>
-                <li>Open the /install/ folder in the browser</li>
-                <p>Check system requirements. If one of these extensions is not enabled, you must enable it from your server settings. If all requirements are provided, click Next.</p>
-                <img src="assets/img/start.png" style="width: 75%; height: 75%">
-                <li>Check folder permissions</li>
-                <p>If a folder doesn't have read and write permissions you need to change the settings on your server. If all requirements are provided, click Next.</p>
-                <img src="assets/img/folder.png" style="width: 75%; height: 75%">
-                <li>Enter your database credentials. Click next.</li>
-                <p></p>
-                <img src="assets/img/database.png" style="width: 75%; height: 75%">
+                <li>Clone the project from github</li>
+                <li>Edit the yaml file for docker or manually enter the credentials you want in the /config/environment.php file</li>
+                <li>Launch the setup file in your browser /install/setup.php</li>
+                <p>The script checks the requirements, write permissions on the generated folders and creates a database with sample data</p>
                 <li>Finish</li>
-                <p>The installation is finished and you can access the control panel.</p>
+                <p>If all went well you will see a summary screen with a login button. Alternatively, you will get an error message</p>
             </ol>
         </div>
         
