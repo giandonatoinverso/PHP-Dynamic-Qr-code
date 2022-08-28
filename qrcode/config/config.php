@@ -1,5 +1,7 @@
 <?php
 
+require_once ('environment.php');
+
 //Note: This file should be included first in every php page.
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
@@ -17,20 +19,17 @@ define('READ_PATH', $_SERVER['HTTP_HOST'].'/read.php?id=');
 require_once BASE_PATH . '/lib/MysqliDb/MysqliDb.php';
 require_once BASE_PATH . '/helpers/helpers.php';
 
-/*
-|--------------------------------------------------------------------------
-| DATABASE CONFIGURATION
-|--------------------------------------------------------------------------
- */
-
-define('DB_HOST', "%HOSTNAME%");
-define('DB_USER', "%USERNAME%");
-define('DB_PASSWORD', "%PASSWORD%");
-define('DB_NAME', "%DATABASE%");
 
 /**
  * Get instance of DB object
  */
 function getDbInstance() {
-	return new MysqliDb(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    return new MysqliDb (Array (
+        'host' => DATABASE_HOST,
+        'username' => DATABASE_USER,
+        'password' => DATABASE_PASSWORD,
+        'db'=> DATABASE_NAME,
+        'port' => DATABASE_PORT,
+        'prefix' => DATABASE_PREFIX,
+        'charset' => DATABASE_CHARSET));
 }
