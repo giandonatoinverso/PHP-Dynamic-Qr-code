@@ -61,8 +61,7 @@
     <div class="col-sm-4">
         <div class="form-group">
             <label for="link">URL *</label>
-            <input type="url" pattern="https://.*" name="link" value="" placeholder="https://codecanyon.net" class="form-control" required="required" id="link">
-        </div>
+            <input type="url" pattern="http.*://.*" name="link" value="" placeholder="https://example.com" class="form-control" required="required" id="link">        </div>
     </div>
     
     
