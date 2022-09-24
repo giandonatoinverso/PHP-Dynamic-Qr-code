@@ -28,7 +28,7 @@ class MysqliDb
      *
      * @var string
      */
-    public static $prefix = '';
+    public static $prefix = DATABASE_PREFIX;
 
     /**
      * MySQLi instances
@@ -727,7 +727,7 @@ class MysqliDb
 
         $column = is_array($columns) ? implode(', ', $columns) : $columns;
 
-        if (strpos($tableName, '.') === false && strpos($tableName, DATABASE_PREFIX) === false) {
+        if (strpos($tableName, '.') === false) {
             $this->_tableName = self::$prefix . $tableName;
         } else {
             $this->_tableName = $tableName;
@@ -761,10 +761,6 @@ class MysqliDb
      */
     public function getOne($tableName, $columns = '*')
     {
-        if (strpos($tableName, '.') === false && strpos($tableName, DATABASE_PREFIX) === false) {
-            $tableName = DATABASE_PREFIX . $tableName;
-        }
-
         $res = $this->get($tableName, 1, $columns);
 
         if ($res instanceof MysqliDb) {
@@ -790,10 +786,6 @@ class MysqliDb
      */
     public function getValue($tableName, $column, $limit = 1)
     {
-        if (strpos($tableName, '.') === false && strpos($tableName, DATABASE_PREFIX) === false) {
-            $tableName = DATABASE_PREFIX . $tableName;
-        }
-
         $res = $this->ArrayBuilder()->get($tableName, $limit, "{$column} AS retval");
 
         if (!$res) {
@@ -840,9 +832,6 @@ class MysqliDb
      */
     public function insertMulti($tableName, array $multiInsertData, array $dataKeys = null)
     {
-        if (strpos($tableName, '.') === false && strpos($tableName, DATABASE_PREFIX) === false) {
-            $tableName = DATABASE_PREFIX . $tableName;
-        }
         // only auto-commit our inserts, if no transaction is currently running
         $autoCommit = (isset($this->_transaction_in_progress) ? !$this->_transaction_in_progress : true);
         $ids = array();
