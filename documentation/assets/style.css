@@ -53,7 +53,8 @@ a:hover {
 .navbar {
 	border-radius: 0;
 	clear: both;
-	margin-bottom: 0
+	margin-bottom: 0;
+    overflow-y: auto;
 }
 
 .navbar-default {
