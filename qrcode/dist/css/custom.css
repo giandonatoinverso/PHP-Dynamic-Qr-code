@@ -7,3 +7,7 @@
 * @link      https://github.com/giandonatoinverso/PHP-Dynamic-Qr-code
 * @version   1.0
 */
+
+.bulk-action-wrapper {
+    padding: 10px 0;
+}

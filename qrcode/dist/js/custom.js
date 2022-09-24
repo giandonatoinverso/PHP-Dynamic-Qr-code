@@ -421,4 +421,59 @@
     $('.product-image-thumb.active').removeClass('active');
     $(this).addClass('active');
   });
+
+  const bulk_action = $('input[name=bulk-select]');
+
+  if (bulk_action) {
+    bulk_action.on('change', function() {
+      if ($(this).prop('checked')) {
+        $('input[name^=action]').each(function() {
+          $(this).prop('checked', true);
+        });
+      } else {
+        $('input[name^=action]').each(function() {
+          $(this).prop('checked', false);
+        });
+      }
+    });
+  }
+
+  const bulk_form = $('form#bulk-action');
+
+  bulk_form.on('submit', function(e) {
+    e.preventDefault();
+    const paramsElements = document.querySelectorAll('input[name^=action]');
+    console.log(paramsElements);
+    let params = [];
+
+    paramsElements.forEach((val) => {
+      if (val.checked) {
+        params.push(val.value);
+      }
+    });
+
+    const data = {
+      action: $('select[name=bulk-action]').val(),
+      params: params,
+      type: $('input[name=type]').val()
+    }
+
+    $.ajax({
+      url: window.location.origin + '/bulk_action.php',
+      method: "POST",
+      data: JSON.stringify(data),
+      dataType: "json",
+      contentType: 'application/json',
+      success: (res) => {
+        if (res.status == 200) {
+          window.location.href = res.data;
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+
+    return false;
+  });
 })(jQuery)
