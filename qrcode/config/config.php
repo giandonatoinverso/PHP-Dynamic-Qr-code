@@ -30,6 +30,5 @@ function getDbInstance() {
         'password' => DATABASE_PASSWORD,
         'db'=> DATABASE_NAME,
         'port' => DATABASE_PORT,
-        'prefix' => DATABASE_PREFIX,
         'charset' => DATABASE_CHARSET));
 }
