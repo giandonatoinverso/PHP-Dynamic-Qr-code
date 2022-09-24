@@ -149,7 +149,7 @@ class Dynamic_Qrcode
         $dynamic_id = htmlspecialchars($_GET['dynamic_id'], ENT_QUOTES, 'UTF-8');           // get dynamic id
         $old_filename = htmlspecialchars($_GET['filename'], ENT_QUOTES, 'UTF-8');           // get filename
         
-        $query = $db->query("SELECT format FROM dynamic_qrcodes WHERE id=$dynamic_id");     // get format
+        $query = $db->query("SELECT format FROM ".DATABASE_PREFIX."dynamic_qrcodes WHERE id=$dynamic_id");     // get format
         $format = $query[0]['format'];
         
         $data_to_db = $this->collect();
@@ -190,7 +190,7 @@ class Dynamic_Qrcode
         
         $db = getDbInstance();
         
-        $query = $db->query("SELECT format FROM dynamic_qrcodes WHERE id=$dynamic_id");     
+        $query = $db->query("SELECT format FROM ".DATABASE_PREFIX."dynamic_qrcodes WHERE id=$dynamic_id");     
         $format = $query[0]['format'];
         
         $db->where('id', $dynamic_id);
