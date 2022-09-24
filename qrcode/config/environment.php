@@ -24,7 +24,7 @@ if(is_string($docker_cid)) {
     define('DATABASE_PASSWORD', "root");
     // This must have a trailing underscore.
     // Example: qr_
-    define('DATABASE_PREFIX', "qr_");
+    define('DATABASE_PREFIX', "");
     define('DATABASE_CHARSET', "utf8");
 }
 /*
