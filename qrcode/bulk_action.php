@@ -20,6 +20,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $files = [];
     $type = filter_var($json['type'], FILTER_SANITIZE_STRING);
 
+    if (count($params) == 0) {
+        echo json_encode([
+            'data' => 'No qrcodes were selected.',
+            'status' => 400
+        ]);
+        exit();
+    }
+
     foreach ($params as $param) {
         $row = $db->where('id', $param);
         $row = $db->getOne("{$type}_qrcodes");
