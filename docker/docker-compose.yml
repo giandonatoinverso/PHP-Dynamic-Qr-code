@@ -23,6 +23,7 @@ services:
       DATABASE_NAME: "qrcode"
       DATABASE_USER: "qrcode"
       DATABASE_PASSWORD: "changeme"
+      DATABASE_PREFIX: ""
       DATABASE_CHARSET: "utf8"
     volumes:
       - ./data/app/config:/var/www/html/config
