@@ -28,7 +28,7 @@ class MysqliDb
      *
      * @var string
      */
-    public static $prefix = '';
+    public static $prefix = DATABASE_PREFIX;
 
     /**
      * MySQLi instances

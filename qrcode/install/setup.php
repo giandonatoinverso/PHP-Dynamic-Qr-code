@@ -51,7 +51,7 @@ if (!$database->create_database(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD,
     echo "The database could not be created, please check your database credentials!";
     die();
 }
-else if (!$database->create_tables(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_NAME, DATABASE_PORT)) {
+else if (!$database->create_tables(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_NAME, DATABASE_PORT, DATABASE_PREFIX)) {
     echo "The database tables could not be created, please check your database credentials!";
     die();
 }

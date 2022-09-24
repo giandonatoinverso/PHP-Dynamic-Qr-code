@@ -445,7 +445,7 @@ class Static_Qrcode
         $static_id = htmlspecialchars($_GET['static_id'], ENT_QUOTES, 'UTF-8');
         $old_filename = htmlspecialchars($_GET['filename'], ENT_QUOTES, 'UTF-8');
         
-        $query = $db->query("SELECT format FROM static_qrcodes WHERE id=$static_id");     // get format
+        $query = $db->query("SELECT format FROM ".DATABASE_PREFIX."static_qrcodes WHERE id=$static_id");     // get format
         $format = $query[0]['format'];
         
         $data_to_db = $this->collect();
@@ -487,7 +487,7 @@ class Static_Qrcode
         
         $db = getDbInstance();
         
-        $query = $db->query("SELECT format FROM static_qrcodes WHERE id=$static_id");     // get format
+        $query = $db->query("SELECT format FROM ".DATABASE_PREFIX."static_qrcodes WHERE id=$static_id");     // get format
         $format = $query[0]['format'];
         
         $db->where('id', $static_id);
