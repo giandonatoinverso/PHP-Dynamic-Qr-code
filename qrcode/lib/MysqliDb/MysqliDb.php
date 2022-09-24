@@ -790,11 +790,9 @@ class MysqliDb
      */
     public function getValue($tableName, $column, $limit = 1)
     {
-        error_log('1 '.$tableName);
         if (strpos($tableName, '.') === false && strpos($tableName, DATABASE_PREFIX) === false) {
             $tableName = DATABASE_PREFIX . $tableName;
         }
-        error_log('2 '.$tableName);
 
         $res = $this->ArrayBuilder()->get($tableName, $limit, "{$column} AS retval");
 
