@@ -2,3 +2,4 @@
 .project
 .idea
 .DS_Store
+qrcode/config/environment.php
