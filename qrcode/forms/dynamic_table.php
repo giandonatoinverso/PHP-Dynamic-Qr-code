@@ -1,5 +1,6 @@
 <div class="row">
     <div class="col-12">
+        <div id="err-msg"></div>
         <div class="bulk-action-wrapper">
             <form id="bulk-action" action="/bulk_action.php" method="POST"> 
                 <button type="submit" class="btn btn-primary">Bulk Action</button>

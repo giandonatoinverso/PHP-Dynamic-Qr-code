@@ -467,9 +467,19 @@
       success: (res) => {
         if (res.status == 200) {
           window.location.href = res.data;
+          $('#err-msg').css('display', 'none');
+        }
+
+        if (res.status == 400) {
+          $('#err-msg').empty();
+          $('#err-msg').append('<i class="fas fa-exclamation-circle"></i> ' + res.data);
+          $('#err-msg').css('display', 'block');
         }
       },
       error: (err) => {
+        $('#err-msg').empty();
+        $('#err-msg').append('<i class="fas fa-exclamation-circle"></i> ' + res.data);
+        $('#err-msg').css('display', 'block');
         console.log(err);
       }
     });
