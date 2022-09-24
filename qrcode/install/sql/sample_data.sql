@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Struttura della tabella `admin_accounts`
 --
 
-CREATE TABLE IF NOT EXISTS `admin_accounts` (
+CREATE TABLE IF NOT EXISTS `#prefix#admin_accounts` (
   `id` int(25) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `admin_accounts` (
 -- Dump dei dati per la tabella `admin_accounts`
 --
 
-INSERT INTO `admin_accounts` (`id`, `user_name`, `password`, `series_id`, `remember_token`, `expires`, `admin_type`) VALUES
+INSERT INTO `#prefix#admin_accounts` (`id`, `user_name`, `password`, `series_id`, `remember_token`, `expires`, `admin_type`) VALUES
 (1, 'superadmin', '$2y$10$xpZc5KC.aU2XHkcqhuZGFuAnqmtL4Unt8MysOyylceq.19XIyoZpG', 'F5V8N81eQKYJbiyj', '$2y$10$MRWA31CVjAmtrojbm4r18ezDfqC3msAxzJ1ZdbyoRpD5pxF3IdJG6', '2020-09-30 16:19:08', 'super');
 
 -- --------------------------------------------------------
@@ -51,7 +51,7 @@ INSERT INTO `admin_accounts` (`id`, `user_name`, `password`, `series_id`, `remem
 -- Struttura della tabella `dynamic_qrcodes`
 --
 
-CREATE TABLE IF NOT EXISTS `dynamic_qrcodes` (
+CREATE TABLE IF NOT EXISTS `#prefix#dynamic_qrcodes` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `filename` varchar(45) NOT NULL,
   `format` varchar(45) DEFAULT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `dynamic_qrcodes` (
 -- Dump dei dati per la tabella `dynamic_qrcodes`
 --
 
-INSERT INTO `dynamic_qrcodes` (`id`, `filename`, `format`, `identifier`, `link`, `qrcode`, `scan`, `state`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
+INSERT INTO `#prefix#dynamic_qrcodes` (`id`, `filename`, `format`, `identifier`, `link`, `qrcode`, `scan`, `state`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
 (1, 'Facebook', 'png', 'rcCeC', 'https://facebook.com', 'Facebook.png', 0, 'enable', 0, '2020-09-01 15:35:13', 0, NULL),
 (2, 'Amazon', 'png', 'F7GOY6', 'https://amazon.com', 'Amazon.png', 0, 'enable', 0, '2020-09-01 15:40:34', 0, NULL),
 (3, 'Youtube', 'png', '8dK5Nd', 'https://youtube.com', 'Youtube.png', 0, 'enable', 0, '2020-09-01 15:41:43', 0, NULL),
@@ -85,7 +85,7 @@ INSERT INTO `dynamic_qrcodes` (`id`, `filename`, `format`, `identifier`, `link`,
 -- Struttura della tabella `static_qrcodes`
 --
 
-CREATE TABLE IF NOT EXISTS `static_qrcodes` (
+CREATE TABLE IF NOT EXISTS `#prefix#static_qrcodes` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `filename` varchar(45) CHARACTER SET utf8 NOT NULL,
   `format` varchar(45) DEFAULT NULL,
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `static_qrcodes` (
 -- Dump dei dati per la tabella `static_qrcodes`
 --
 
-INSERT INTO `static_qrcodes` (`id`, `filename`, `format`, `type`, `content`, `qrcode`, `state`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
+INSERT INTO `#prefix#static_qrcodes` (`id`, `filename`, `format`, `type`, `content`, `qrcode`, `state`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
 (1, 'Text qr code', 'png', 'text', '<strong>Text:</strong> My first text', 'Text qr code.png', 'enable', 0, '2020-08-24 08:41:31', 0, NULL),
 (2, 'Email', 'jpg', 'email', '<strong>Email:</strong> assistance@domain.com<br><strong>Subject:</strong> Assistance request<br><strong>Message:</strong> Regarding my order N ° ... I require assistance', 'Email.jpg', 'enable', 0, '2020-08-24 08:44:13', 0, NULL),
 (3, 'Call me', 'png', 'phone', '<strong>Phone number:</strong> 12563776756', 'Call me.png', 'enable', 0, '2020-08-24 08:45:10', 0, NULL),

@@ -12,6 +12,8 @@ if(is_string($docker_cid)) {
     define('DATABASE_NAME', Getenv('DATABASE_NAME'));
     define('DATABASE_USER', Getenv('DATABASE_USER'));
     define('DATABASE_PASSWORD', Getenv('DATABASE_PASSWORD'));
+    // This must have a trailing underscore.
+    // Example: qr_
     define('DATABASE_PREFIX', Getenv('DATABASE_PREFIX'));
     define('DATABASE_CHARSET', Getenv('DATABASE_CHARSET'));
 } else {
@@ -20,7 +22,9 @@ if(is_string($docker_cid)) {
     define('DATABASE_NAME', "qrcode");
     define('DATABASE_USER', "root");
     define('DATABASE_PASSWORD', "root");
-    define('DATABASE_PREFIX', "");
+    // This must have a trailing underscore.
+    // Example: qr_
+    define('DATABASE_PREFIX', "qr_");
     define('DATABASE_CHARSET', "utf8");
 }
 /*
