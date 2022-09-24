@@ -25,12 +25,12 @@ $numQrcode_static = $db->getValue ("static_qrcodes", "count(*)");
 $total = $numQrcode_dynamic + $numQrcode_static;
 
 //Get Total scan
-$numScan = $db->query("SELECT sum(scan) FROM dynamic_qrcodes");
+$numScan = $db->query("SELECT sum(scan) FROM ".DATABASE_PREFIX."dynamic_qrcodes");
 
                                                 /* CREATED CHART *///I initialize the variables that will contain the daily values to 0 otherwise in the foreach loop they will be reset every time
 
 //Get the number of DYNAMIC qr code created in 7 days and total scan
-$createdQrcode_dynamic = $db->query("select `created_at`, `scan` from dynamic_qrcodes where `created_at` > curdate()-7;");
+$createdQrcode_dynamic = $db->query("select `created_at`, `scan` from ".DATABASE_PREFIX."dynamic_qrcodes where `created_at` > curdate()-7;");
 
 $dynamic_today = $dynamic_oneday = $dynamic_twoday = $dynamic_threeday = $dynamic_fourday = $dynamic_fiveday = $dynamic_sixday  = 0;
 $scan_today = $scan_oneday = $scan_twoday = $scan_threeday = $scan_fourday = $scan_fiveday = $scan_sixday = 0;
@@ -49,7 +49,7 @@ foreach ($createdQrcode_dynamic as $row) {
 
                                                 /* SCAN CHART */
 //Get the number of STATIC qr code created in 7 days
-$createdQrcode_static = $db->query("select `created_at` from static_qrcodes where `created_at` > curdate()-7;");
+$createdQrcode_static = $db->query("select `created_at` from ".DATABASE_PREFIX."static_qrcodes where `created_at` > curdate()-7;");
 
 $static_today = $static_oneday = $static_twoday = $static_threeday = $static_fourday = $static_fiveday = $static_sixday = 0;
 foreach ($createdQrcode_static as $row) {
