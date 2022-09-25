@@ -6,9 +6,9 @@
                 <button type="submit" class="btn btn-primary">Bulk Action</button>
                 <select name="bulk-action">
                     <option value="">------ Select Option -------</option>
-                    <option value="download">Download QRCode(s)</option>
-                    <input type="hidden" name="type" value="static">
+                    <option value="download-zip">Download QRCode(s) as ZIP</option>
                 </select>
+                <input type="hidden" name="type" value="static">
             </form>
         </div>
     </div>

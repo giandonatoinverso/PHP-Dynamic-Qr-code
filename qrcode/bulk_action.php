@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = filter_var($json['action'], FILTER_SANITIZE_STRING);
     $type = filter_var($json['type'], FILTER_SANITIZE_STRING);
 
-    if ($action === 'download') {
+    if ($action === 'download-zip') {
         $params = $json['params'];
         $files = [];
 
