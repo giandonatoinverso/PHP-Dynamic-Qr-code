@@ -438,7 +438,14 @@
     });
   }
 
-  const bulk_form = $('form#bulk-action');
+  const bulk_button = $('#bulk-action-button');
+
+  bulk_button.on('click', function() {
+    const bulk_select = $("select[name=bulk-action]");
+    $(`.${bulk_select.val()}-modal`).toggle();
+  });
+
+  const bulk_form = $('form#download-form');
 
   bulk_form.on('submit', function(e) {
     e.preventDefault();
@@ -455,7 +462,8 @@
     const data = {
       action: $('select[name=bulk-action]').val(),
       params: params,
-      type: $('input[name=type]').val()
+      type: $('input[name=type]').val(),
+      file_format: $('select[name=file_type]').val()
     }
 
     $.ajax({

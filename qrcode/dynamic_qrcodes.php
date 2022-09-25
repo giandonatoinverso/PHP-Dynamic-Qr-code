@@ -91,6 +91,11 @@ $total_pages = $db->totalPages;
         <!-- Table -->
         <?php include BASE_PATH . '/forms/dynamic_table.php'; ?>  
         <!-- /.Table -->
+
+        <!-- Download Modal -->
+        <?php $type = 'dynamic' ?>
+        <?php include BASE_PATH . '/forms/modals/download_qrcode.modal.php'; ?>
+        <!-- /.Download Modal -->
     
         </div><!-- /.container-fluid -->
     </section>
