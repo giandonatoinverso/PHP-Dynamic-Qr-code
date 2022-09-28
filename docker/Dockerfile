@@ -1,5 +1,5 @@
 FROM php:7.4.21-apache
-ARG APP_VERSION=v1.0.4
+ARG APP_VERSION=v1.0.5
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends less nano tini curl tar git zip unzip && \
