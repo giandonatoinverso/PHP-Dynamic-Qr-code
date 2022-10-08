@@ -2,7 +2,7 @@
     <div class="col-12">
         <div id="err-msg"></div>
         <div class="bulk-action-wrapper">
-            <button id="bulk-action-button" type="button" class="btn btn-primary">
+            <button type="button" class="bulk-action-button btn btn-primary">
                 Bulk Action
             </button>
             <select name="bulk-action">
@@ -93,14 +93,16 @@
     </div><!-- /.col -->
     <div class="col-12">
         <div class="bulk-action-wrapper">
-            <form id="bulk-action" action="/bulk_action.php" method="POST"> 
-                <button type="submit" class="btn btn-primary">Bulk Action</button>
-                <select name="bulk-action">
-                    <option value="">------ Select Option -------</option>
-                    <option value="download">Download QRCode(s)</option>
-                </select>
-                <input type="hidden" name="type" value="dynamic">
-            </form>
+            <button type="submit" class="bulk-action-button btn btn-primary">
+                Bulk Action
+            </button>
+            <select name="bulk-action">
+                <option value="">
+                    ------ Select Option ------
+                </option>
+                <option value="download">Download QRCode(s)</option>
+            </select>
+            <input type="hidden" name="type" value="dynamic">
         </div>
     </div>
 </div><!-- /.row -->
