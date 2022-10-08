@@ -1,11 +1,11 @@
-<div class="modal modal-backdrop download-modal" tabindex="-1" role="dialog">
+<div id="download-modal" class="modal modal-backdrop download-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">
                     Download QRCode(s)
                 </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="download-modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -29,7 +29,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                <button type="button" class="btn btn-secondary" data-dismiss="download-modal">
                     Close
                 </button>
                 <button type="submit" for="#download-form" class="btn btn-primary">

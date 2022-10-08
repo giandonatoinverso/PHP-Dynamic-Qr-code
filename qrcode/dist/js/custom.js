@@ -422,6 +422,12 @@
     $(this).addClass('active');
   });
 
+  const dl_modal_buttons = $('[data-dismiss=download-modal]');
+
+  dl_modal_buttons.on('click', function() {
+    $('#download-modal').toggle();
+  });
+
   const bulk_action = $('input[name=bulk-select]');
 
   if (bulk_action) {
@@ -438,12 +444,14 @@
     });
   }
 
-  const bulk_button = $('#bulk-action-button');
+  const bulk_button = $('.bulk-action-button');
 
-  bulk_button.on('click', function() {
-    const bulk_select = $("select[name=bulk-action]");
-    $(`.${bulk_select.val()}-modal`).toggle();
-  });
+  bulk_button.each(function() {
+    $(this).on('click', function() {
+      const bulk_select = $("select[name=bulk-action]");
+      $(`.${bulk_select.val()}-modal`).toggle();
+    });
+  })
 
   const bulk_form = $('form#download-form');
 
