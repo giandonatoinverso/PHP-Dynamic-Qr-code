@@ -17,7 +17,7 @@ if(is_string($docker_cid)) {
     define('DATABASE_PREFIX', Getenv('DATABASE_PREFIX'));
     define('DATABASE_CHARSET', Getenv('DATABASE_CHARSET'));
 } else {
-    define('DATABASE_HOST', "localhost");
+    define('DATABASE_HOST', "mariadb");
     define('DATABASE_PORT', "3306");
     define('DATABASE_NAME', "qrcode");
     define('DATABASE_USER', "root");
