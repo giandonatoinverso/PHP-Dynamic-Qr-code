@@ -11,14 +11,16 @@
 
 include 'qrcode/config/config.php';
 
+$prefix = DATABASE_PREFIX;
+
 //Get DB instance. function is defined in config.php
 $db = getDbInstance();
 $get_id = htmlspecialchars($_GET['id'], ENT_QUOTES, 'UTF-8'); // I take the id through the GET method
 
-$state = $db->query("SELECT state FROM dynamic_qrcodes WHERE identifier='$get_id'");
-$link = $db->query("SELECT link FROM dynamic_qrcodes WHERE identifier='$get_id'");
+$state = $db->query("SELECT state FROM " . $prefix . "dynamic_qrcodes WHERE identifier='$get_id'");
+$link = $db->query("SELECT link FROM " . $prefix . "dynamic_qrcodes WHERE identifier='$get_id'");
 
-$update = $db->query("UPDATE dynamic_qrcodes SET scan=scan+1 WHERE identifier='$get_id'");    
+$update = $db->query("UPDATE " . $prefix . "dynamic_qrcodes SET scan=scan+1 WHERE identifier='$get_id'");    
     
     if($state[0]['state'] == 'enable'){
         echo '<meta http-equiv="refresh" content="0; URL='.$link[0]['link'].'" />';         // Page refresh with the link obtained
