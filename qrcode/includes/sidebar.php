@@ -1,10 +1,8 @@
 
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-light-info elevation-4">
     <!-- Brand Logo -->
-    <a href="./index.php" class="brand-link">
-      <img src="dist/img/Symbol_WhiteBlue.png" alt="Logo" class="brand-image"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">Qrcode Generator</span>
+    <a href="./index.php" class="brand-link" style="display: flex; justify-content: center;">
+      <img src="dist/img/mohca-qr-manager.svg" alt="Logo" class="brand-image">
     </a>
 
     <!-- Sidebar -->

@@ -75,7 +75,7 @@ if (isset($_COOKIE['series_id']) && isset($_COOKIE['remember_token']))
 <body class="login-page" style="min-height: 512.391px;">
     <div class="login-box">
   <div class="login-logo">
-    <img src="dist/img/DynamicQRCode_Original.png" style="width: 95%; height: 95%">
+    <img src="dist/img/mohca-qr-manager.svg" style="width: 95%; height: 95%">
   </div>
   
   <div class="card">
