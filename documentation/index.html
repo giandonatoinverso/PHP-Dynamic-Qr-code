@@ -1180,6 +1180,7 @@ that includes two hidden input fields: filename, del_id. Before confirming the c
                 
             <div id="insertion-dynamic">
                 <h2>How does the insertion of a dynamic qr code work?</h2>
+                <p>The physical creation of a dynamic qr code is managed by a free external provider https://api.qrserver.com/</p>
                 <p>The main page dedicated to the insertion is <strong>add_dynamic.php</strong> the form HTML-tag is also declared on this page, however the input fields are separated in another page called <strong>add_dynamic_form.php</strong> for a matter of code reusability</p>
                 <ol>
                     <div class="editor ml-20">
@@ -1242,6 +1243,7 @@ whose data will be sent and processed by the class with the name (attribute) "fo
             
             <div id="insertion-static">
                 <h2>How does the insertion of a static qr code work?</h2>
+                <p>The physical creation of a static qr code is managed by a free external provider https://api.qrserver.com/</p>
                 <p>The main page dedicated to the insertion is <strong>add_static.php</strong> Unlike the previous creation page, the one for static qr codes does not provide a single form HTML-tag but each type of static qr code has its own form. For the input fields there is a secondary page called <strong>add_static_form.php</strong> which contains the menu of the various types of qr code that can be created and for each card (for each type) another file is included with the individual input fields, for example <strong>text.php</strong></p>
                 <ol>
                     <div class="editor ml-20">
