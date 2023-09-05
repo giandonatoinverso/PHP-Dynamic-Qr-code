@@ -4,22 +4,7 @@
 <p style="font-size: 200px"><a href="https://giandonatoinverso.it/qrcode" target="_blank">LIVE DEMO</a></p>
 <p style="font-size: 200px"><a href="https://giandonatoinverso.it/documentation" target="_blank">DOCUMENTATION</a></p>
 
-<div id="donate-button-container">
-  <div id="donate-button"></div>
-  <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-  <script>
-    PayPal.Donation.Button({
-      env:'production',
-      hosted_button_id:'UEYVHYZYCGYYN',
-      image: {
-        src:'https://www.paypalobjects.com/en_US/IT/i/btn/btn_donateCC_LG.gif',
-        alt:'Donate with PayPal button',
-        title:'PayPal - The safer, easier way to pay online!',
-      }
-    }).render('#donate-button');
-  </script>
-</div>
-
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UEYVHYZYCGYYN)
 
 <h1>Features</h1>
 
