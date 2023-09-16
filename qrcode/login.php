@@ -145,7 +145,7 @@ if (isset($_COOKIE['series_id']) && isset($_COOKIE['remember_token']))
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="../../dist/js/adminlte.js"></script>
 
 </body>
 </html>
