@@ -48,7 +48,7 @@
 <li>Responsive bootstrap-based design</li>
 <li>Easy to understand and expand code</li>
 <li>Full OOP with classes and well documented</li>
-<li>Supported php version <= 7.1</li>
+<li>Supported php version <= 8.1</li>
 </ul>
 <h2>What is included</h2>
 <ul>
@@ -61,5 +61,6 @@
 <h2>Updates</h2>
 <ul>
 <li>Version 1.0 – September, 2020 (Initial release)</li>
+<li>Version 2.0 – October, 2023</li>
 </ul>
 
