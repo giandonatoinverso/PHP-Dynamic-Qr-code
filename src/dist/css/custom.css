@@ -1,0 +1,9 @@
+
+
+.bulk-action-wrapper {
+    padding: 10px 0;
+}
+#err-msg {
+    display: none;
+    color: red;
+}
