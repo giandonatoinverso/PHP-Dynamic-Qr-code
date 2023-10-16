@@ -61,6 +61,16 @@
 <h2>Updates</h2>
 <ul>
 <li>Version 1.0 – September, 2020 (Initial release)</li>
-<li>Version 2.0 – October, 2023</li>
+<li>Version 2.0 – 15th October, 2023</li>
+<ul>
+<li>Elimination of superfluous files</li>
+<li>Moving read.php file within the project</li>
+<li>Addition of Qrcode class abstraction</li>
+<li>Improvement of bulk download</li>
+<li>General refactoring</li>
 </ul>
-
+<li>Version 2.1 – 16th October, 2023</li>
+<li>Refactoring database tables</li>
+<li>Added script for upgrading to versions >= 2.0</li>
+<li>NEW: added multi-user support for dynamic/static qrcodes</li>
+</ul>
