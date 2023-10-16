@@ -70,7 +70,9 @@
 <li>General refactoring</li>
 </ul>
 <li>Version 2.1 – 16th October, 2023</li>
+<ul>
 <li>Refactoring database tables</li>
 <li>Added script for upgrading to versions >= 2.0</li>
 <li>NEW: added multi-user support for dynamic/static qrcodes</li>
+</ul>
 </ul>
