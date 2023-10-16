@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($params as $param) {
         $row = $db->where('id', $param);
         $row = $db->getOne("{$type}_qrcodes");
-        $files[] = SAVED_QRCODE_FOLDER . $row['qrcode'];
+        @$files[] = SAVED_QRCODE_FOLDER . $row['qrcode'];
     }
 
     $zip = new ZipArchive();
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $zip->open($relative_dir, ZipArchive::CREATE);
 
     foreach ($files as $file) {
-        $download_file = file_get_contents($file, true);
+        $download_file = @file_get_contents($file, true);
         $zip->addFromString(basename($file), $download_file);
     }
 

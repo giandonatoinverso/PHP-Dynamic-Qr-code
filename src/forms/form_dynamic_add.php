@@ -120,5 +120,7 @@
             </div>
         </div>
     </div>
+    <?php } else { ?>
+        <input type="hidden" name="id_owner" value="<?php echo $_SESSION["user_id"];?>"/>
     <?php } ?>
 </fieldset>

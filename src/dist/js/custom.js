@@ -459,7 +459,7 @@
     }
 
     $.ajax({
-      url: window.location.origin + '/bulk_action.php',
+      url: './bulk_action.php',
       method: "POST",
       data: JSON.stringify(data),
       dataType: "json",
