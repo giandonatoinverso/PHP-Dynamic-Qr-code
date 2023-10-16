@@ -47,6 +47,7 @@
                 if(isset($dynamic_qrcode['id_owner'])) {
                     $owner = $users_instance->getUser($dynamic_qrcode['id_owner']);
                     echo "<option selected value=\"" . $owner["id"] . "\">" . $owner["username"] . "</option>";
+                    echo "<option value=\"\">All</option>";
                 }
 
                 $users = $users_instance->getAllUsers();
