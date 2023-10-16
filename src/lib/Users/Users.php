@@ -7,9 +7,7 @@ class Users
      *
      */
     public function __construct()
-    {   
-        if ($_SESSION['admin_type'] !== 'super')
-            $this->failure('Only a "super admin" account can access the admin listing page', 'Location: index.php');
+    {
     }
 
     /**
@@ -26,18 +24,23 @@ class Users
     {
         $ordering = [
             'id' => 'ID',
-            'user_name' => 'Username',
-            'admin_type' => 'Admin Type'
+            'username' => 'Username',
+            'type' => 'Type'
         ];
 
         return $ordering;
+    }
+
+    public function getAllUsers() {
+        $db = getDbInstance();
+        return $db->get(DATABASE_PREFIX.'users');
     }
 
     public function getUser($id) {
         $db = getDbInstance();
 
         $db->where('id', $id);
-        $result = $db->getOne(DATABASE_PREFIX.'admin_accounts');
+        $result = $db->getOne(DATABASE_PREFIX.'users');
 
         if($result !== NULL)
             return $result;
@@ -51,17 +54,17 @@ class Users
     public function addUser($input_data) {
         $db = getDbInstance();
 
-        $data_to_db["user_name"] = $input_data["user_name"];
+        $data_to_db["username"] = $input_data["username"];
         $data_to_db['password'] = password_hash($input_data['password'], PASSWORD_DEFAULT);
-        $data_to_db["admin_type"] = $input_data["admin_type"];
+        $data_to_db["type"] = $input_data["type"];
 
-        $db->where('user_name', $data_to_db['user_name']);
-        $db->get('admin_accounts');
+        $db->where('username', $data_to_db['username']);
+        $db->get('users');
 
         if ($db->count >= 1)
             $this->failure('Username already exists');
 
-	    $last_id = $db->insert('admin_accounts', $data_to_db);
+	    $last_id = $db->insert('users', $data_to_db);
 
 	    if ($last_id)
 		    $this->success('User added successfully');
@@ -74,24 +77,24 @@ class Users
     public function editUser($input_data) {
         $db = getDbInstance();
 
-        $db->where('user_name', $input_data['user_name']);
+        $db->where('username', $input_data['username']);
         $db->where('id', $input_data["id"], '!=');
-        $row = $db->getOne('admin_accounts');
+        $row = $db->getOne('users');
 
-        if (!empty($row['user_name']))  {
+        if (!empty($row['username']))  {
             $query_string = http_build_query(array(
                 'id' => $input_data["id"],
                 'edit' => "true",
             ));
-            $this->failure('Username already exists', 'Location: admin_user.php?'.$query_string);
+            $this->failure('Username already exists', 'Location: user.php?'.$query_string);
         }
 
-        $data_to_db["user_name"] = $input_data["user_name"];
+        $data_to_db["username"] = $input_data["username"];
         $data_to_db['password'] = password_hash($input_data['password'], PASSWORD_DEFAULT);
-        $data_to_db["admin_type"] = $input_data["admin_type"];
+        $data_to_db["type"] = $input_data["type"];
 
 	    $db->where('id', $input_data["id"]);
-	    $stat = $db->update('admin_accounts', $data_to_db);
+	    $stat = $db->update('users', $data_to_db);
         
         if ($stat)
             $this->success('User updated successfully!');
@@ -104,14 +107,14 @@ class Users
      * 
      */
     public function deleteUser($id) {
-        if($_SESSION['admin_type']!='super'){
+        if($_SESSION['type']!='super'){
             header('HTTP/1.1 401 Unauthorized', true, 401);
             exit("401 Unauthorized");
         }
         
         $db = getDbInstance();
         $db->where('id', $id);
-        $stat = $db->delete('admin_accounts');
+        $stat = $db->delete('users');
 
         if ($stat)
             $this->info('User deleted successfully!');
@@ -122,7 +125,7 @@ class Users
     /**
      * Flash message Failure process
      */
-    public function failure($message, $location = 'Location: admin_users.php') {
+    public function failure($message, $location = 'Location: users.php') {
         $_SESSION['failure'] = $message;
         header($location);
     	exit();
@@ -133,7 +136,7 @@ class Users
      */
     public function success($message) {
         $_SESSION['success'] = $message;
-        header('Location: admin_users.php');
+        header('Location: users.php');
     	exit();
     }
     
@@ -142,7 +145,7 @@ class Users
      */
     public function info($message) {
         $_SESSION['info'] = $message;
-        header('Location: admin_users.php');
+        header('Location: users.php');
     	exit();
     }
 }

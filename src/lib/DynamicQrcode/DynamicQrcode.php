@@ -26,6 +26,7 @@ class DynamicQrcode {
     {
         $ordering = [
             'id' => 'ID',
+            'id_owner' => 'Owner',
             'filename' => 'File Name',
             'identifier' => 'Identifier',
             'link' => 'Link',
@@ -48,6 +49,11 @@ class DynamicQrcode {
      * We save into db the url of qrcode image
      */
     public function addQrcode($input_data) {
+        if($input_data['id_owner'] != "")
+            $data_to_db['id_owner'] = $input_data['id_owner'];
+        else
+            $data_to_db['id_owner'] = NULL;
+
         $data_to_db['filename'] = htmlspecialchars($input_data['filename'], ENT_QUOTES, 'UTF-8');
         $data_to_db['created_at'] = date('Y-m-d H:i:s');
         $data_to_db['link'] = htmlspecialchars($input_data['link'], ENT_QUOTES, 'UTF-8');
@@ -66,6 +72,10 @@ class DynamicQrcode {
      * 
      */
     public function editQrcode($input_data) {
+        if($input_data['id_owner'] != "")
+            $data_to_db['id_owner'] = $input_data['id_owner'];
+        else
+            $data_to_db['id_owner'] = NULL;
         $data_to_db['filename'] = htmlspecialchars($input_data['filename'], ENT_QUOTES, 'UTF-8');
         $data_to_db['created_at'] = date('Y-m-d H:i:s');
         $data_to_db['link'] = htmlspecialchars($input_data['link'], ENT_QUOTES, 'UTF-8');
@@ -80,10 +90,23 @@ class DynamicQrcode {
      * 
      */
     public function deleteQrcode($id) {
-        if($_SESSION['admin_type'] !==  'super')
-            $this->failure("You don't have permission to perform this action");
+        if($_SESSION['type'] === "super") {
+            $this->qrcode_instance->deleteQrcode($id);
+        } else if ($_SESSION['type'] === "admin") {
+            $qrcode = $this->getQrcode($id);
 
-        $this->qrcode_instance->deleteQrcode($id);
+            if(!isset($qrcode["id_owner"]))
+                $this->failure("You cannot delete this qrcode");
+
+            require_once BASE_PATH . '/lib/users/Users.php';
+            $users = new Users();
+            $user = $users->getUser($_SESSION['user_id']);
+
+            if($user["id"] === $qrcode["id_owner"])
+                $this->qrcode_instance->deleteQrcode($id);
+            else
+                $this->failure("You cannot delete this qrcode because it's of another user");
+        }
     }
 
 

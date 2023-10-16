@@ -86,7 +86,7 @@
     <div class="col-6 col-md-1">
                 <label for="format">Format *</label>
                 <select name="format" class="form-control" required="required">
-                    <option value="png" selected >PNG</option>
+                    <option value="png" selected>PNG</option>
                     <option value="gif">GIF</option>
                     <option value="jpeg">JPEG</option>
                     <option value="jpg">JPG</option>
@@ -96,4 +96,29 @@
     </div>
   </div>
 </div>
+
+    <?php if($_SESSION['type'] ===  'super') { ?>
+    <div class="col-sm-12 mb-2">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="id_owner">Owner *</label>
+                    <select name="id_owner" class="form-control">
+                        <option value="" selected>All</option>
+                        <?php
+
+                        require_once BASE_PATH . '/lib/Users/Users.php';
+                        $users_instance = new Users();
+                        $users = $users_instance->getAllUsers();
+
+                        foreach ($users as $user) {
+                        ?>
+                        <option value="<?php echo $user["id"];?>"><?php echo $user["username"];?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php } ?>
 </fieldset>

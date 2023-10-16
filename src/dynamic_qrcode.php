@@ -22,6 +22,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["edit"])) {
             isset($_POST["filename"]) &&
             isset($_POST["link"]) &&
             isset($_POST["state"]) &&
+            isset($_POST["id_owner"]) &&
             isset($_POST["id"])
     )
         $dynamic_qrcode_instance->editQrcode($_POST);
@@ -33,7 +34,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST["edit"])) {
         isset($_POST["background"]) &&
         isset($_POST["link"]) &&
         isset($_POST["filename"]) &&
-        isset($_POST["format"])
+        isset($_POST["format"]) &&
+        isset($_POST["id_owner"])
     )
         $dynamic_qrcode_instance->addQrcode($_POST);
 }

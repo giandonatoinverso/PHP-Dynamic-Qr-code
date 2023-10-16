@@ -1,14 +1,4 @@
 <?php
-/**
- * PHP Dynamic Qr code
- *
- * @author    Giandonato Inverso <info@giandonatoinverso.it>
- * @copyright Copyright (c) 2020-2021
- * @license   https://opensource.org/licenses/MIT MIT License
- * @link      https://github.com/giandonatoinverso/PHP-Dynamic-Qr-code
- * @version   1.0
- */
-
 class Database {
 
 	// Function to the database and tables and fill them with the default data

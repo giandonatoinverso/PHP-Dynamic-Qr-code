@@ -19,6 +19,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["del_id"])) {
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["edit"])) {
     if(
         isset($_POST["filename"]) &&
+        isset($_POST["id_owner"]) &&
         isset($_POST["id"])
     )
         $static_qrcode_instance->editQrcode($_POST);

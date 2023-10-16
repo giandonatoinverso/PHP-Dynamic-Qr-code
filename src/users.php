@@ -5,14 +5,17 @@ require_once BASE_PATH . '/includes/auth_validate.php';
 require_once BASE_PATH . '/lib/Users/Users.php';
 
 $db = getDbInstance();
-$Users = new Users();
+$users = new Users();
 
-$select = array('id', 'user_name', 'admin_type');
-$search_fields = array('user_name');
+if ($_SESSION['type'] !== 'super')
+    $users->failure('Only a "super admin" account can access the admin listing page', 'Location: index.php');
+
+$select = array('id', 'username', 'type');
+$search_fields = array('username');
 require_once BASE_PATH . '/includes/search_order.php';
 $page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?? 1;
 $db->pageLimit = 15;
-$rows = $db->arraybuilder()->paginate('admin_accounts', $page, $select);
+$rows = $db->arraybuilder()->paginate('users', $page, $select);
 $total_pages = $db->totalPages;
 ?>
 
@@ -40,13 +43,13 @@ $total_pages = $db->totalPages;
         <div class="row mb-2">
             
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Admin users</h1>
+            <h1 class="m-0 text-dark">Users</h1>
           </div><!-- /.col -->
           
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item">
-                  <a href="admin_user.php" class="btn btn-success"><i class="fa fa-plus"></i> Add new</a>
+                  <a href="user.php" class="btn btn-success"><i class="fa fa-plus"></i> Add new</a>
                 </li>
             </ol>
           </div><!-- /.col -->
@@ -59,7 +62,7 @@ $total_pages = $db->totalPages;
     <!-- /.Flash message-->
     
     <!-- Filters -->
-    <?php   $options = $Users->setOrderingValues();
+    <?php   $options = $users->setOrderingValues();
             include BASE_PATH . '/forms/filters.php'; ?>
     <!-- /.Filters -->
 

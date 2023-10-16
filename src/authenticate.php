@@ -13,8 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	// Get DB instance.
 	$db = getDbInstance();
 
-	$db->where('user_name', $username);
-	$row = $db->getOne('admin_accounts');
+	$db->where('username', $username);
+	$row = $db->getOne('users');
 
 	if ($db->count >= 1)
     {
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 		if (password_verify($password, $db_password))
         {
 			$_SESSION['user_logged_in'] = TRUE;
-			$_SESSION['admin_type'] = $row['admin_type'];
+			$_SESSION['type'] = $row['type'];
             $_SESSION['user_id'] = $row['id'];
 
 			if ($remember)
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 					'remember_token' => $encryted_remember_token,
 					'expires' =>$expiry_time
 				);
-				$db->update('admin_accounts', $update_remember);
+				$db->update('users', $update_remember);
 			}
 			// Authentication successfull redirect user
 			header('Location: index.php');

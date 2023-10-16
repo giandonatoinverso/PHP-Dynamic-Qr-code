@@ -7,7 +7,7 @@
                     <span class="input-group-text"><i class="fa fa-user"></i></span>
                 </div>
                 
-                <input type="text" name="user_name" placeholder="Username" class="form-control" required="required" value="<?php echo ($edit) ? $user['user_name'] : ''; ?>" autocomplete="off">
+                <input type="text" name="username" placeholder="Username" class="form-control" required="required" value="<?php echo ($edit) ? $user['username'] : ''; ?>" autocomplete="off">
             </div>
         </div>
     </div>
@@ -31,12 +31,12 @@
         <div class="form-group">
             <div class="radio">
                 <label class="radio">
-                <input type="radio" name="admin_type" value="super" required="required" <?php echo ($edit && $user['admin_type'] =='super') ? "checked": "" ; ?>/> Super admin</label>
+                <input type="radio" name="type" value="super" required="required" <?php echo ($edit && $user['type'] =='super') ? "checked": "" ; ?>/> Super admin</label>
             </div>
             
             <div class="radio">
                 <label class="radio">
-                <input type="radio" name="admin_type" value="admin" required="required" <?php echo ($edit && $user['admin_type'] =='admin') ? "checked": "" ; ?>/> Admin</label>
+                <input type="radio" name="type" value="admin" required="required" <?php echo ($edit && $user['type'] =='admin') ? "checked": "" ; ?>/> Admin</label>
             </div>
         </div>
     </div>

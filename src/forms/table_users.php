@@ -7,7 +7,7 @@
             <tr>
                 <th width="5%">ID</th>
                 <th width="45%">Username</th>
-                <th width="40%">Admin type</th>
+                <th width="40%">Type</th>
                 <th width="10%">Actions</th>
             </tr>
         </thead>
@@ -15,11 +15,11 @@
             <?php foreach ($rows as $row): ?>
             <tr>
                 <td><?php echo $row['id']; ?></td>
-                <td><?php echo htmlspecialchars($row['user_name']); ?></td>
-                <td><?php echo htmlspecialchars($row['admin_type']); ?></td>
+                <td><?php echo htmlspecialchars($row['username']); ?></td>
+                <td><?php echo htmlspecialchars($row['type']); ?></td>
                 <td>
                     <!-- EDIT -->
-                    <a href="admin_user.php?edit=true&id=<?php echo $row['id']; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                    <a href="user.php?edit=true&id=<?php echo $row['id']; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                     
                     <!-- DELETE -->
                     <a
@@ -36,7 +36,7 @@
    </div><!-- /.Card body -->
    
    <div class="card-footer clearfix">
-       <?php echo paginationLinks($page, $total_pages, 'admin_users.php'); ?>
+       <?php echo paginationLinks($page, $total_pages, 'users.php'); ?>
        </div><!-- /.Card footer -->
        
         </div><!-- /.Card -->
@@ -46,7 +46,7 @@
 <!-- Delete Confirmation Modal -->
 <div class="modal fade" id="delete-modal" role="dialog">
     <div class="modal-dialog">
-        <form action="admin_user.php" method="POST">
+        <form action="user.php" method="POST">
             <!-- Modal content -->
 
             <div class="modal-content">

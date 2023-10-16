@@ -80,7 +80,7 @@
                 </ul>
             </li>
           <li class="nav-item">
-            <a href="./admin_users.php" <?php echo ((substr(CURRENT_PAGE, 0, 15) == 'admin_users.php') || (substr(CURRENT_PAGE, 0, 14) == 'admin_user.php')) ? ' class="nav-link active"' : ' class="nav-link"'; ?>>
+            <a href="./users.php" <?php echo ((substr(CURRENT_PAGE, 0, 15) == 'users.php') || (substr(CURRENT_PAGE, 0, 14) == 'user.php')) ? ' class="nav-link active"' : ' class="nav-link"'; ?>>
                 <i class="fas fa-users nav-icon"></i>
               <p>Users</p>
             </a>

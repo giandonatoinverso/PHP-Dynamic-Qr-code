@@ -1,14 +1,4 @@
 <?php
-/**
- * PHP Dynamic Qr code
- *
- * @author    Giandonato Inverso <info@giandonatoinverso.it>
- * @copyright Copyright (c) 2020-2021
- * @license   https://opensource.org/licenses/MIT MIT License
- * @link      https://github.com/giandonatoinverso/PHP-Dynamic-Qr-code
- * @version   1.0
- */
-
 require_once ('../config/environment.php');
 require_once('includes/database_class.php');
 

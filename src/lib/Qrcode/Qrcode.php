@@ -156,9 +156,6 @@ class Qrcode {
      * 
      */
     public function deleteQrcode($id) {
-        if($_SESSION['admin_type'] !==  'super')
-            $this->failure("You don't have permission to perform this action");
-        
         $db = getDbInstance();
 
         $qrcode = $this->getQrcode($id);

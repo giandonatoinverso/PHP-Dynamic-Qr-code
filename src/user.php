@@ -6,6 +6,10 @@ require_once BASE_PATH . '/lib/Users/Users.php';
 
 $user_instance = new Users();
 
+if ($_SESSION['type'] !== 'super')
+    $user_instance->failure('Only a "super admin" account can access the admin listing page', 'Location: index.php');
+
+
 $edit = false;
 if($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["edit"]) && $_GET["edit"] == "true" && isset($_GET["id"])) {
     $edit = true;
@@ -18,9 +22,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["del_id"])) {
 
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["edit"])) {
     if(
-        isset($_POST["user_name"]) &&
+        isset($_POST["username"]) &&
         isset($_POST["password"]) &&
-        isset($_POST["admin_type"]) &&
+        isset($_POST["type"]) &&
         isset($_POST["id"])
     )
         $user_instance->editUser($_POST);
@@ -28,9 +32,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["edit"])) {
 
 if($_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST["edit"])) {
     if(
-        isset($_POST["user_name"]) &&
+        isset($_POST["username"]) &&
         isset($_POST["password"]) &&
-        isset($_POST["admin_type"])
+        isset($_POST["type"])
     )
         $user_instance->addUser($_POST);
 }

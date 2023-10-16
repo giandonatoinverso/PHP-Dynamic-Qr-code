@@ -16,6 +16,7 @@
             <tr>
                 <th><input type="checkbox" name="bulk-select" value="1"></th>
                 <th>ID</th>
+                <th>Owner</th>
                 <th>Filename</th>
                 <th>Unique redirect identifier</th>
                 <th>URL</th>
@@ -30,6 +31,21 @@
             <tr>
                 <td><input type="checkbox" name="action[]" value="<?=$row['id']?>" onchange="updateBulkActionVisibility()"></td>
                 <td><?php echo $row['id']; ?></td>
+                <td>
+                    <?php
+                    if(!isset($row['id_owner']))
+                        echo "";
+                    else {
+                        require_once BASE_PATH . '/lib/Users/Users.php';
+                        $users = new Users();
+                        $user = $users->getUser($row['id_owner']);
+                        if($user !== NULL)
+                            echo $user["username"];
+                        else
+                            echo "";
+                    }
+                    ?>
+                </td>
                 <td><?php echo htmlspecialchars($row['filename']); ?></td>
                 <td><?php echo htmlspecialchars($row['identifier']); ?></td>
                 <td><?php echo htmlspecialchars($row['link']); ?></td>
