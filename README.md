@@ -55,6 +55,16 @@
 - CSS files
 - Docker compose file
 
+## Setup with docker compose (simplest method)
+1. download docker-compose.yml file
+2. Start docker stack
+```bash
+docker compose build --no-cache && docker compose up -d
+```
+3. Open your browser at http://localhost:80 and login with (username: superadmin, password: superadmin)
+
+For other setup methods please see the documentation
+
 ## Changelog
 
 - Version 1.0 – September, 2020 (Initial release)
