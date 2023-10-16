@@ -453,7 +453,7 @@
     });
 
     const data = {
-      action: $('select[name=bulk-action]').val(),
+      action: 'download',
       params: params,
       type: $('input[name=type]').val()
     }
@@ -478,7 +478,7 @@
       },
       error: (err) => {
         $('#err-msg').empty();
-        $('#err-msg').append('<i class="fas fa-exclamation-circle"></i> ' + res.data);
+        $('#err-msg').append('<i class="fas fa-exclamation-circle"></i> ' + err.responseText);
         $('#err-msg').css('display', 'block');
         console.log(err);
       }

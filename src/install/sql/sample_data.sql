@@ -23,7 +23,7 @@ INSERT INTO `#prefix#users` (`id`, `username`, `password`, `series_id`, `remembe
 
 CREATE TABLE IF NOT EXISTS `#prefix#dynamic_qrcodes` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `id_owner` int(25) NOT NULL AUTO_INCREMENT,
+  `id_owner` int(25) NULL DEFAULT NULL,
   `filename` varchar(45) NOT NULL,
   `format` varchar(45) DEFAULT NULL,
   `identifier` longtext,
@@ -39,16 +39,16 @@ CREATE TABLE IF NOT EXISTS `#prefix#dynamic_qrcodes` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
 
 INSERT INTO `#prefix#dynamic_qrcodes` (`id`, `id_owner`, `filename`, `format`, `identifier`, `link`, `qrcode`, `scan`, `state`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(1, 0, 'Facebook', 'png', 'rcCeC', 'https://facebook.com', 'Facebook.png', 0, 'enable', 0, '2020-09-01 15:35:13', 0, NULL),
-(2, 0, 'Amazon', 'png', 'F7GOY6', 'https://amazon.com', 'Amazon.png', 0, 'enable', 0, '2020-09-01 15:40:34', 0, NULL),
-(3, 0, 'Youtube', 'png', '8dK5Nd', 'https://youtube.com', 'Youtube.png', 0, 'enable', 0, '2020-09-01 15:41:43', 0, NULL),
-(4, 0, 'Apple', 'jpg', '7zxTKn', 'https://apple.com', 'Apple.jpg', 0, 'enable', 0, '2020-09-01 15:44:20', 0, NULL),
-(5, 0, 'Ebay', 'svg', 'a4F3kr', 'https://ebay.com', 'Ebay.svg', 0, 'enable', 0, '2020-09-01 15:44:46', 0, NULL),
-(6, 0, 'Google', 'png', 'saJV1y', 'https://google.it', 'Google.png', 0, 'enable', 0, '2020-09-01 15:46:37', 0, NULL);
+(1, 1, 'Facebook', 'png', 'rcCeC', 'https://facebook.com', 'Facebook.png', 0, 'enable', 0, '2020-09-01 15:35:13', 0, NULL),
+(2, 1, 'Amazon', 'png', 'F7GOY6', 'https://amazon.com', 'Amazon.png', 0, 'enable', 0, '2020-09-01 15:40:34', 0, NULL),
+(3, 1, 'Youtube', 'png', '8dK5Nd', 'https://youtube.com', 'Youtube.png', 0, 'enable', 0, '2020-09-01 15:41:43', 0, NULL),
+(4, 1, 'Apple', 'jpg', '7zxTKn', 'https://apple.com', 'Apple.jpg', 0, 'enable', 0, '2020-09-01 15:44:20', 0, NULL),
+(5, 1, 'Ebay', 'svg', 'a4F3kr', 'https://ebay.com', 'Ebay.svg', 0, 'enable', 0, '2020-09-01 15:44:46', 0, NULL),
+(6, 1, 'Google', 'png', 'saJV1y', 'https://google.it', 'Google.png', 0, 'enable', 0, '2020-09-01 15:46:37', 0, NULL);
 
 CREATE TABLE IF NOT EXISTS `#prefix#static_qrcodes` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `id_owner` int(25) NOT NULL AUTO_INCREMENT,
+  `id_owner` int(25) NULL DEFAULT NULL,
   `filename` varchar(45) CHARACTER SET utf8 NOT NULL,
   `format` varchar(45) DEFAULT NULL,
   `type` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
@@ -63,18 +63,18 @@ CREATE TABLE IF NOT EXISTS `#prefix#static_qrcodes` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 INSERT INTO `#prefix#static_qrcodes` (`id`, `id_owner`, `filename`, `format`, `type`, `content`, `qrcode`, `state`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(1, 0, 'Text qr code', 'png', 'text', '<strong>Text:</strong> My first text', 'Text qr code.png', 'enable', 0, '2020-08-24 08:41:31', 0, NULL),
-(2, 0, 'Email', 'jpg', 'email', '<strong>Email:</strong> assistance@domain.com<br><strong>Subject:</strong> Assistance request<br><strong>Message:</strong> Regarding my order N ° ... I require assistance', 'Email.jpg', 'enable', 0, '2020-08-24 08:44:13', 0, NULL),
-(3, 0, 'Call me', 'png', 'phone', '<strong>Phone number:</strong> 12563776756', 'Call me.png', 'enable', 0, '2020-08-24 08:45:10', 0, NULL),
-(4, 0, 'Send sms', 'png', 'sms', '<strong>Phone number:</strong> 12563776756<br><strong>Message:</strong> Test message', 'Send sms.png', 'enable', 0, '2020-08-24 08:46:52', 0, NULL),
-(5, 0, 'wa.me', 'svg', 'whatsapp', '<strong>Phone number:</strong> 12563776756<br><strong>Message:</strong> Hey there! I am using WhatsApp', 'wa.me.svg', 'enable', 0, '2020-08-24 08:47:49', 0, NULL),
-(6, 0, 'New York', 'png', 'location', '<strong>Latitude:</strong> 40.7127753<br><strong>Longitude:</strong> -74.0059728', 'New York.png', 'enable', 0, '2020-08-24 08:51:55', 0, NULL),
-(7, 0, 'John Doe', 'png', 'vcard', '<div class="row"><div class="col-sm-4"><strong>Full name:</strong> John Doe<br><strong>Nickname:</strong> John<br><strong>Email:</strong> john@domain.com<br><strong>Website:</strong> https://johndoe.com</div><div class="col-sm-4"><strong>Company:</strong> Doe Inc.<br><strong>Role:</strong> CEO<br><strong>Categories:</strong> electronics, vcard<br><strong>Note:</strong> </div><div class="col-sm-4"><strong>Phone:</strong> 412-999-9988<br><strong>Home Phone:</strong> 412-999-5555<br><strong>Work phone:</strong> 412-444-2222<br><strong>Address:</strong> 123 Main Street&nbsp;Anywhere&nbsp;15523&nbsp;Arizona</div></div>', 'John Doe.png', 'enable', 0, '2020-08-24 08:55:59', 0, NULL),
-(8, 0, 'Boat party', 'png', 'event', '<div class="row"><div class="col-sm-4"><strong>Title:</strong> Party with friends<br><strong>Start event:</strong> 2020-08-26 09:00 AM<br><strong>End event:</strong> 2020-08-26 03:00 PM<br></div><div class="col-sm-4"><strong>Location:</strong> New York<br><strong>Description:</strong> Happy Birthday Carl!<br><strong>URL:</strong> </div></div>', 'Boat party.png', 'enable', 0, '2020-08-24 08:58:20', 0, NULL),
-(9, 0, 'Save me', 'svg', 'bookmark', '<strong>Title:</strong> Google search<br><strong>Url:</strong> https://google.it', 'Save me.svg', 'enable', 0, '2020-08-24 08:59:46', 0, NULL),
-(10, 0, 'Free wifi', 'png', 'wifi', '<strong>Encryption:</strong> WPA<br><strong>SSID:</strong> TP-LINK-AB123<br><strong>Password:</strong> bBB8MR7TwbbUWMZT', 'Free wifi.png', 'enable', 0, '2020-08-24 09:02:35', 0, NULL),
-(11, 0, 'Pay here', 'png', 'paypal', '<div class="row"><div class="col-sm-4"><strong>Payment type:</strong> _click<br><strong>Email:</strong> paypal@domain.com<br><strong>Item name:</strong> T-shirt<br><strong>Item id:</strong> 177</div><div class="col-sm-4"><strong>Amount:</strong> 15<br><strong>Currency:</strong> USD<br><strong>Shipping:</strong> 4<br><strong>Tax rate:</strong> </div></div>', 'Pay here.png', 'enable', 0, '2020-08-24 09:04:13', 0, NULL),
-(12, 0, 'Send BTC ', 'jpg', 'bitcoin', '<strong>BTC address:</strong> 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa<br><strong>Amount:</strong> 1<br><strong>Label:</strong> <br><strong>Message:</strong> ', 'Send BTC .jpg', 'enable', 0, '2020-09-01 10:51:08', 0, NULL);
+(1, 1, 'Text qr code', 'png', 'text', '<strong>Text:</strong> My first text', 'Text qr code.png', 'enable', 0, '2020-08-24 08:41:31', 0, NULL),
+(2, 1, 'Email', 'jpg', 'email', '<strong>Email:</strong> assistance@domain.com<br><strong>Subject:</strong> Assistance request<br><strong>Message:</strong> Regarding my order N ° ... I require assistance', 'Email.jpg', 'enable', 0, '2020-08-24 08:44:13', 0, NULL),
+(3, 1, 'Call me', 'png', 'phone', '<strong>Phone number:</strong> 12563776756', 'Call me.png', 'enable', 0, '2020-08-24 08:45:10', 0, NULL),
+(4, 1, 'Send sms', 'png', 'sms', '<strong>Phone number:</strong> 12563776756<br><strong>Message:</strong> Test message', 'Send sms.png', 'enable', 0, '2020-08-24 08:46:52', 0, NULL),
+(5, 1, 'wa.me', 'svg', 'whatsapp', '<strong>Phone number:</strong> 12563776756<br><strong>Message:</strong> Hey there! I am using WhatsApp', 'wa.me.svg', 'enable', 0, '2020-08-24 08:47:49', 0, NULL),
+(6, 1, 'New York', 'png', 'location', '<strong>Latitude:</strong> 40.7127753<br><strong>Longitude:</strong> -74.0059728', 'New York.png', 'enable', 0, '2020-08-24 08:51:55', 0, NULL),
+(7, 1, 'John Doe', 'png', 'vcard', '<div class="row"><div class="col-sm-4"><strong>Full name:</strong> John Doe<br><strong>Nickname:</strong> John<br><strong>Email:</strong> john@domain.com<br><strong>Website:</strong> https://johndoe.com</div><div class="col-sm-4"><strong>Company:</strong> Doe Inc.<br><strong>Role:</strong> CEO<br><strong>Categories:</strong> electronics, vcard<br><strong>Note:</strong> </div><div class="col-sm-4"><strong>Phone:</strong> 412-999-9988<br><strong>Home Phone:</strong> 412-999-5555<br><strong>Work phone:</strong> 412-444-2222<br><strong>Address:</strong> 123 Main Street&nbsp;Anywhere&nbsp;15523&nbsp;Arizona</div></div>', 'John Doe.png', 'enable', 0, '2020-08-24 08:55:59', 0, NULL),
+(8, 1, 'Boat party', 'png', 'event', '<div class="row"><div class="col-sm-4"><strong>Title:</strong> Party with friends<br><strong>Start event:</strong> 2020-08-26 09:00 AM<br><strong>End event:</strong> 2020-08-26 03:00 PM<br></div><div class="col-sm-4"><strong>Location:</strong> New York<br><strong>Description:</strong> Happy Birthday Carl!<br><strong>URL:</strong> </div></div>', 'Boat party.png', 'enable', 0, '2020-08-24 08:58:20', 0, NULL),
+(9, 1, 'Save me', 'svg', 'bookmark', '<strong>Title:</strong> Google search<br><strong>Url:</strong> https://google.it', 'Save me.svg', 'enable', 0, '2020-08-24 08:59:46', 0, NULL),
+(10, 1, 'Free wifi', 'png', 'wifi', '<strong>Encryption:</strong> WPA<br><strong>SSID:</strong> TP-LINK-AB123<br><strong>Password:</strong> bBB8MR7TwbbUWMZT', 'Free wifi.png', 'enable', 0, '2020-08-24 09:02:35', 0, NULL),
+(11, 1, 'Pay here', 'png', 'paypal', '<div class="row"><div class="col-sm-4"><strong>Payment type:</strong> _click<br><strong>Email:</strong> paypal@domain.com<br><strong>Item name:</strong> T-shirt<br><strong>Item id:</strong> 177</div><div class="col-sm-4"><strong>Amount:</strong> 15<br><strong>Currency:</strong> USD<br><strong>Shipping:</strong> 4<br><strong>Tax rate:</strong> </div></div>', 'Pay here.png', 'enable', 0, '2020-08-24 09:04:13', 0, NULL),
+(12, 1, 'Send BTC', 'jpg', 'bitcoin', '<strong>BTC address:</strong> 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa<br><strong>Amount:</strong> 1<br><strong>Label:</strong> <br><strong>Message:</strong> ', 'Send BTC .jpg', 'enable', 0, '2020-09-01 10:51:08', 0, NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

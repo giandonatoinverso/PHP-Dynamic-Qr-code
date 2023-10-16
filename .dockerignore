@@ -1,0 +1,3 @@
+# Exclude specific directories
+src/install/
+src/upgrade/

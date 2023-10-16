@@ -1,0 +1,47 @@
+version: "3.2"
+services:
+  php-dynamic-qrcode:
+    image: "giandonatoinverso/php-dynamic-qr-code:latest"
+    restart: "unless-stopped"
+    environment:
+      TYPE: "docker"
+      DATABASE_HOST: "php-dynamic-qrcode-db"
+      DATABASE_PORT: "3306"
+      DATABASE_NAME: "qrcode"
+      DATABASE_USER: "qrcode"
+      DATABASE_PASSWORD: "changeme"
+      DATABASE_PREFIX: ""
+      DATABASE_CHARSET: "utf8"
+    ports:
+      - 80:80
+    depends_on:
+      - php-dynamic-qrcode-db
+    volumes:
+      - php_dynamic_qrcode_config_data:/var/www/html/config
+      - php_dynamic_qrcode_saved_qrcode_data:/var/www/html/saved_qrcode
+    networks:
+      - php-dynamic-qrcode-network
+
+  php-dynamic-qrcode-db:
+    image: "giandonatoinverso/php-dynamic-qr-code-db:latest"
+    restart: "unless-stopped"
+    volumes:
+      - php_dynamic_qrcode_db_data:/var/lib/mysql
+    ports:
+      - '13306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: "changeme"
+      MYSQL_DATABASE: "qrcode"
+      MYSQL_USER: "qrcode"
+      MYSQL_PASSWORD: "changeme"
+    networks:
+      - php-dynamic-qrcode-network
+
+volumes:
+  php_dynamic_qrcode_db_data:
+  php_dynamic_qrcode_config_data:
+  php_dynamic_qrcode_saved_qrcode_data:
+
+networks:
+  php-dynamic-qrcode-network:
+    driver: bridge

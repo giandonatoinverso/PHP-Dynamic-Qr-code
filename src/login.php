@@ -25,16 +25,13 @@ if (isset($_COOKIE['series_id']) && isset($_COOKIE['remember_token']))
 		// User found. verify remember token
 		if (password_verify($remember_token, $row['remember_token']))
         {
-			// Verify if expiry time is modified. 
-			$expires = strtotime($row['expires']);
+            $expires = strtotime($row['expires']);
 
-			if (strtotime(date()) > $expires)
-			{
-				// Remember Cookie has expired. 
-				clearAuthCookie();
-				header('Location: login.php');
-				exit;
-			}
+            if (time() > $expires) {
+                clearAuthCookie();
+                header('Location: login.php');
+                exit;
+            }
 
 			$_SESSION['user_logged_in'] = TRUE;
 			$_SESSION['type'] = $row['type'];

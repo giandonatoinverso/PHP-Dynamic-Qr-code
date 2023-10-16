@@ -12,7 +12,7 @@
 <li><strong>#1 Dynamic Qr code generator on GitHub with database to store Qr codes</strong></li>
 <li>Create unlimited Qr code</li>
 <li>Easy installation wizard</li>
-<li>Control panel with 2 access levels</li>
+<li>Control panel with 2 access levels and multi-user support</li>
 <li>Dashboard with advanced statistics on Qr code created and on scans</li>
 <li>Dynamic Qr code</li>
 <ul>
@@ -74,5 +74,10 @@
 <li>Refactoring database tables</li>
 <li>Added script for upgrading to versions >= 2.0</li>
 <li>NEW: added multi-user support for dynamic/static qrcodes</li>
+</ul>
+<li>Version 2.2 – 16th October, 2023</li>
+<ul>
+<li>Refactoring docker image building</li>
+<li>NEW: added docker compose support</li>
 </ul>
 </ul>

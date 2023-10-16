@@ -5,10 +5,29 @@ require_once 'config/config.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $db = getDbInstance();
     $json = json_decode(file_get_contents('php://input'), true);
-    $action = filter_var($json['action'], FILTER_SANITIZE_STRING);
+
+    if (isset($json['action'])) {
+        $action = filter_var($json['action'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    } else {
+        echo json_encode([
+            'data' => 'Missing action field in the request.',
+            'status' => 400
+        ]);
+        exit();
+    }
+
     $params = $json['params'];
     $files = [];
-    $type = filter_var($json['type'], FILTER_SANITIZE_STRING);
+
+    if (isset($json['type'])) {
+        $type = filter_var($json['type'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    } else {
+        echo json_encode([
+            'data' => 'Type action field in the request.',
+            'status' => 400
+        ]);
+        exit();
+    }
 
     if (count($params) == 0) {
         echo json_encode([
@@ -25,9 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $zip = new ZipArchive();
-    $relative_dir = SAVED_QRCODE_FOLDER. 'zip/qrcodes_'. $_SESSION['user_id'] .'.zip';
-    unlink($relative_dir);
-    $url_path = SAVED_QRCODE_URL . 'zip/qrcodes_'. $_SESSION['user_id'] .'.zip';
+    $uniqid = uniqid();
+    $relative_dir = SAVED_QRCODE_FOLDER. 'zip/qrcodes_'. $uniqid .'.zip';
+    @unlink($relative_dir);
+    $url_path = SAVED_QRCODE_URL . 'zip/qrcodes_'. $uniqid .'.zip';
     $zip->open($relative_dir, ZipArchive::CREATE);
 
     foreach ($files as $file) {

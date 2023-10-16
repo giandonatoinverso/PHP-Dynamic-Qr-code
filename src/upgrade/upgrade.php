@@ -30,14 +30,14 @@ if ($conn->query($sql) === TRUE) {
     echo "Error renaming column: " . $conn->error . "<br>";
 }
 
-$sql = "ALTER TABLE " . DATABASE_PREFIX . "dynamic_qrcodes" . " ADD `id_owner` INT(25) NULL AFTER `id`";
+$sql = "ALTER TABLE " . DATABASE_PREFIX . "dynamic_qrcodes" . " ADD `id_owner` INT(25) NULL DEFAULT NULL AFTER `id`";
 if ($conn->query($sql) === TRUE) {
     echo "The id_owner column has been added to dynamic_qrcodes successfully.<br>";
 } else {
     echo "Error adding column: " . $conn->error . "<br>";
 }
 
-$sql = "ALTER TABLE " . DATABASE_PREFIX . "static_qrcodes" . " ADD `id_owner` INT(25) NULL AFTER `id`";
+$sql = "ALTER TABLE " . DATABASE_PREFIX . "static_qrcodes" . " ADD `id_owner` INT(25) NULL DEFAULT NULL AFTER `id`";
 if ($conn->query($sql) === TRUE) {
     echo "The id_owner column has been added to static_qrcodes successfully.<br>";
 } else {

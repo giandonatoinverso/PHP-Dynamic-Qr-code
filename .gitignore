@@ -2,4 +2,3 @@
 .project
 .idea
 .DS_Store
-src/config/environment.php
