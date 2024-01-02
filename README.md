@@ -45,7 +45,8 @@
 - Responsive bootstrap-based design
 - Easy to understand and expand code
 - Full OOP with classes and well-documented
-- Supported php version <= 8.1
+
+N.B. The project requires at least PHP 7.4 to run properly. It has been successfully tested up to PHP 8.1.
 
 ## What is included
 
