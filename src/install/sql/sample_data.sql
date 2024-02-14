@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#dynamic_qrcodes` (
   `filename` varchar(45) NOT NULL,
   `format` varchar(45) DEFAULT NULL,
   `identifier` longtext,
-  `link` varchar(100) DEFAULT NULL,
+  `link` varchar(500) DEFAULT NULL,
   `qrcode` varchar(60) DEFAULT NULL,
   `scan` int(11) NOT NULL DEFAULT '0',
   `state` varchar(20) NOT NULL DEFAULT 'enable',
