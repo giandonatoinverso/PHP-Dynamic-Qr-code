@@ -399,7 +399,7 @@ class StaticQrcode {
             if(!isset($qrcode["id_owner"]))
                 $this->failure("You cannot delete this qrcode");
 
-            require_once BASE_PATH . '/lib/users/Users.php';
+            require_once BASE_PATH . '/lib/Users/Users.php';
             $users = new Users();
             $user = $users->getUser($_SESSION['user_id']);
 
