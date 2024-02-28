@@ -26,7 +26,7 @@ if($_SESSION['type'] !== 'super') {
     $db->where("id_owner", $_SESSION['user_id']);
     $db->orWhere ("id_owner", NULL, 'IS');
 }
-$numScan = $db->getOne(DATABASE_PREFIX."dynamic_qrcodes", "sum(scan) as numScan");
+$numScan = $db->getOne("dynamic_qrcodes", "sum(scan) as numScan");
 
                                                 /* CREATED CHART */
 //I initialize the variables that will contain the daily values to 0 otherwise in the foreach loop they will be reset every time
