@@ -40,7 +40,7 @@ class Users
         $db = getDbInstance();
 
         $db->where('id', $id);
-        $result = $db->getOne(DATABASE_PREFIX.'users');
+        $result = $db->getOne('users');
 
         if($result !== NULL)
             return $result;

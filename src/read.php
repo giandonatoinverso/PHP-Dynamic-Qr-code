@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] !== "GET" || !isset($_GET['id']))
 $db = getDbInstance();
 
 $db->where("identifier", $_GET['id']);
-$qrcode = $db->getOne(DATABASE_PREFIX."dynamic_qrcodes");
+$qrcode = $db->getOne("dynamic_qrcodes");
 
 $data = array (
     'scan' => $db->inc(1)
