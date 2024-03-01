@@ -355,7 +355,7 @@ class StaticQrcode {
         $data_to_db['type'] = $type;
         $data_to_db['format'] = $_POST['format'];
         $data_to_db['qrcode'] = $data_to_db['filename'].'.'.$data_to_db['format'];
-        $data_to_db['content'] = $this->sContent;
+        $data_to_db['content'] = htmlspecialchars($this->sContent, ENT_QUOTES, 'UTF-8');
 
         if(isset($_POST['level']))
             $input_data["level"] = $_POST['level'];
