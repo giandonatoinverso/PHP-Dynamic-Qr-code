@@ -427,10 +427,16 @@
   if (bulk_action) {
     bulk_action.on('change', function() {
       if ($(this).prop('checked')) {
+        const bulkActionDiv = document.getElementById('bulk-action-div');
+        bulkActionDiv.style.display = 'block';
+
         $('input[name^=action]').each(function() {
           $(this).prop('checked', true);
         });
       } else {
+        const bulkActionDiv = document.getElementById('bulk-action-div');
+        bulkActionDiv.style.display = 'none';
+
         $('input[name^=action]').each(function() {
           $(this).prop('checked', false);
         });
