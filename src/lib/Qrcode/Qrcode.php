@@ -10,10 +10,10 @@ class Qrcode {
      */
     public function __construct($type) {
         if($type === "static") {
-            $this->table = DATABASE_PREFIX."static_qrcodes";
+            $this->table = "static_qrcodes";
             $this->redirect_url = "static_qrcodes.php";
         } else if($type === "dynamic") {
-            $this->table = DATABASE_PREFIX."dynamic_qrcodes";
+            $this->table = "dynamic_qrcodes";
             $this->redirect_url = "dynamic_qrcodes.php";
         } else {
             $this->redirect_url = "index.php";
