@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once 'config/config.php';
+require_once BASE_PATH . '/lib/DynamicQrcode/DynamicQrcode.php';
+require_once BASE_PATH . '/lib/StaticQrcode/StaticQrcode.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $db = getDbInstance();
