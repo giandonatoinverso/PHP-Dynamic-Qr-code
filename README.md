@@ -17,6 +17,7 @@
 - Control panel with 2 access levels
 - Multi-account 
 - Dashboard with advanced statistics on Qr codes created and on scans
+- Bulk download, bulk delete
 - Dynamic Qr code
     - Create, modify, and delete Qr codes
     - You can download your Qr codes when you want
