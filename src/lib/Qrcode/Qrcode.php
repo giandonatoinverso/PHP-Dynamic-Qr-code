@@ -171,10 +171,13 @@ class Qrcode {
         }
 
         if ($status)
-            if (!$async)
+            if (!$async) {
                 $this->info('Qr code deleted successfully!');
+            }
         else
-            $this->failure('Unable to delete qr code');
+            if (!$async) {
+                $this->failure('Unable to delete qr code');
+            }
     }
     
     /**
