@@ -3,8 +3,20 @@
         <div id="err-msg"></div>
         <div class="bulk-action-wrapper">
             <form id="bulk-action" action="bulk_action.php" method="POST">
-                <button type="submit" class="btn btn-primary">Download selected</button>
-                <input type="hidden" name="type" value="dynamic">
+                <div class="col-sm-12 mb-2" style="margin-left: 10px">
+                    <div class="row">
+                        <div class="col-5 col-md-2">
+                            <div class="input-group">
+                                <select name="action" class="form-control">
+                                    <option value="download" selected >Download</option>
+                                    <option value="delete">Delete</option>
+                                </select>
+                                <input type="hidden" name="type" value="static">
+                                <button type="submit" class="btn btn-primary">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

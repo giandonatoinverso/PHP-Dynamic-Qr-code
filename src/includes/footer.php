@@ -6,10 +6,9 @@
 
   <!-- Main Footer -->
   <footer class="main-footer text-sm">
-    <strong>Copyright &copy; <?php echo date("Y");?> <a href="#">PHP Qrcode Generator</a> - </strong>
-    All rights reserved by Giandonato Inverso.
+    <strong><a href="https://github.com/giandonatoinverso/PHP-Dynamic-Qr-code" target="_blank">PHP Qrcode Generator</a> by </strong> Giandonato Inverso
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 2.2.1
+      <b>Version</b> 2.2.4
     </div>
   </footer>
 </div>
@@ -23,7 +22,7 @@
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
 <!-- AdminLTE Custom-->
-<script src="dist/js/custom.js"></script>
+<script src="dist/js/custom.js?nocache=<?php print rand();?>"></script>
 <!-- Color picker -->
 <script src="plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 <!-- date-range-picker -->

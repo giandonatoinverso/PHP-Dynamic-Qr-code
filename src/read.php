@@ -13,7 +13,7 @@ $data = array (
     'scan' => $db->inc(1)
 );
 $db->where("identifier", $_GET['id']);
-$db->update (DATABASE_PREFIX.'dynamic_qrcodes', $data);
+$db->update ('dynamic_qrcodes', $data);
     
     if($qrcode['state'] == 'enable'){
         echo '<meta http-equiv="refresh" content="0; URL='.$qrcode['link'].'" />';

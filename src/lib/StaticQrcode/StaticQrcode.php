@@ -390,9 +390,9 @@ class StaticQrcode {
      * Delete qr code
      * 
      */
-    public function deleteQrcode($id) {
+    public function deleteQrcode($id, $async = false) {
         if($_SESSION['type'] === "super") {
-            $this->qrcode_instance->deleteQrcode($id);
+            $this->qrcode_instance->deleteQrcode($id, $async);
         } else if ($_SESSION['type'] === "admin") {
             $qrcode = $this->getQrcode($id);
 
@@ -404,7 +404,7 @@ class StaticQrcode {
             $user = $users->getUser($_SESSION['user_id']);
 
             if($user["id"] === $qrcode["id_owner"])
-                $this->qrcode_instance->deleteQrcode($id);
+                $this->qrcode_instance->deleteQrcode($id, $async);
             else
                 $this->failure("You cannot delete this qrcode because it's of another user");
         }

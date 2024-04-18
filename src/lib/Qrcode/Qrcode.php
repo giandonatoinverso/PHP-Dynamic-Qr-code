@@ -155,7 +155,7 @@ class Qrcode {
      * Delete qr code
      * 
      */
-    public function deleteQrcode($id) {
+    public function deleteQrcode($id, $async = false) {
         $db = getDbInstance();
 
         $qrcode = $this->getQrcode($id);
@@ -171,7 +171,8 @@ class Qrcode {
         }
 
         if ($status)
-            $this->info('Qr code deleted successfully!');
+            if (!$async)
+                $this->info('Qr code deleted successfully!');
         else
             $this->failure('Unable to delete qr code');
     }

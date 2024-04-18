@@ -459,7 +459,7 @@
     });
 
     const data = {
-      action: 'download',
+      action: $('select[name=action]').val(),
       params: params,
       type: $('input[name=type]').val()
     }
@@ -472,8 +472,12 @@
       contentType: 'application/json',
       success: (res) => {
         if (res.status == 200) {
-          window.location.href = res.data;
-          $('#err-msg').css('display', 'none');
+          if(data["action"] === "download") {
+            window.location.href = res.data;
+            $('#err-msg').css('display', 'none');
+          } else if(data["action"] === "delete") {
+            location.reload();
+          }
         }
 
         if (res.status == 400) {
