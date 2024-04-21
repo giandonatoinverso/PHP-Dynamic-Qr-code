@@ -41,8 +41,8 @@ function clearAuthCookie() {
 
 	unset($_COOKIE['series_id']);
 	unset($_COOKIE['remember_token']);
-	setcookie('series_id', null, -1, '/');
-	setcookie('remember_token', null, -1, '/');
+	setcookie('series_id', '', -1, '/');
+	setcookie('remember_token', '', -1, '/');
 }
 /**
  *
