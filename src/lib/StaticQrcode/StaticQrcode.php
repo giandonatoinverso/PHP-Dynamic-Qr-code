@@ -49,7 +49,7 @@ class StaticQrcode {
     {
         if($text != NULL){
             $this->sData = $text;
-            $this->sContent = '<strong>Text:</strong> '.$text;
+            $this->sContent = 'Text: '.$text;
             $this->addQrcode("text");
         }
         else
@@ -66,7 +66,7 @@ class StaticQrcode {
     {
         if($email != NULL && $message != NULL){
             $this->sData = 'MATMSG:TO:'.$email.';SUB:'.$subject.';BODY:'.$message.';';
-            $this->sContent = '<strong>Email:</strong> '.$email.'<br>'.'<strong>Subject:</strong> '.$subject.'<br>'.'<strong>Message:</strong> '.$message;
+            $this->sContent = 'Email: '.$email.'<br>'.'Subject: '.$subject.'<br>'.'Message: '.$message;
 
             $this->addQrcode("email");
         }
@@ -83,7 +83,7 @@ class StaticQrcode {
     {
         if($phone_number != NULL){
             $this->sData = 'TEL:'.$country_code.$phone_number;  
-            $this->sContent = '<strong>Phone number:</strong> '.$country_code.$phone_number;
+            $this->sContent = 'Phone number: '.$country_code.$phone_number;
 
             $this->addQrcode("phone");
         }
@@ -101,7 +101,7 @@ class StaticQrcode {
     {
         if($phone_number != NULL && $message != NULL){
             $this->sData = 'SMSTO:'.$country_code.$phone_number.':'.$message;  
-            $this->sContent = '<strong>Phone number:</strong> '.$country_code.$phone_number.'<br>'.'<strong>Message:</strong> '.$message;
+            $this->sContent = 'Phone number: '.$country_code.$phone_number.'<br>'.'Message: '.$message;
 
             $this->addQrcode("sms");
         }
@@ -119,7 +119,7 @@ class StaticQrcode {
     {
         if($phone_number != NULL){
             $this->sData = 'https://wa.me/'.$country_code.$phone_number.'?text='.$message;  
-            $this->sContent = '<strong>Phone number:</strong> '.$country_code.$phone_number.'<br>'.'<strong>Message:</strong> '.$message;
+            $this->sContent = 'Phone number: '.$country_code.$phone_number.'<br>'.'Message: '.$message;
 
             $this->addQrcode("whatsapp");
         }
@@ -135,7 +135,7 @@ class StaticQrcode {
     {
         if($skype_username != NULL){
             $this->sData = 'skype:'.$skype_username.'?call';
-            $this->sContent = '<strong>Skype username:</strong> '.$skype_username;
+            $this->sContent = 'Skype username: '.$skype_username;
 
             $this->addQrcode("skype");
         }
@@ -152,7 +152,7 @@ class StaticQrcode {
     {
         if($latitude != NULL && $longitude != NULL){
             $this->sData = 'GEO:'.$latitude.','.$longitude.';';
-            $this->sContent = '<strong>Latitude:</strong> '.$latitude.'<br>'.'<strong>Longitude:</strong> '.$longitude;
+            $this->sContent = 'Latitude: '.$latitude.'<br>'.'Longitude: '.$longitude;
 
             $this->addQrcode("location");
         }
@@ -187,15 +187,15 @@ class StaticQrcode {
             $this->sData = $vcard->get();
             $this->sContent = '<div class="row"><div class="col-sm-4">';
             
-                $this->sContent .= '<strong>Full name:</strong> '.$fullname.'<br>'.'<strong>Nickname:</strong> '.$nickname.'<br>'.'<strong>Email:</strong> '.$email.'<br>'.'<strong>Website:</strong> '.$website.'</div>';
+                $this->sContent .= 'Full name: '.$fullname.'<br>'.'Nickname: '.$nickname.'<br>'.'Email: '.$email.'<br>'.'Website: '.$website.'</div>';
             
             $this->sContent .= '<div class="col-sm-4">';
             
-                $this->sContent .= '<strong>Company:</strong> '.$company.'<br>'.'<strong>Role:</strong> '.$role.'<br>'.'<strong>Categories:</strong> '.$categories.'<br>'.'<strong>Note:</strong> '.$note.'</div>';
+                $this->sContent .= 'Company: '.$company.'<br>'.'Role: '.$role.'<br>'.'Categories: '.$categories.'<br>'.'Note: '.$note.'</div>';
                 
             $this->sContent .= '<div class="col-sm-4">';
             
-                $this->sContent .= '<strong>Phone:</strong> '.$phone.'<br>'.'<strong>Home Phone:</strong> '.$home_phone.'<br>'.'<strong>Work phone:</strong> '.$work_phone.'<br>'.'<strong>Address:</strong> '.$address.'&nbsp;'.$city.'&nbsp;'.$postcode.'&nbsp;'.$state.'</div>';
+                $this->sContent .= 'Phone: '.$phone.'<br>'.'Home Phone: '.$home_phone.'<br>'.'Work phone: '.$work_phone.'<br>'.'Address: '.$address.'&nbsp;'.$city.'&nbsp;'.$postcode.'&nbsp;'.$state.'</div>';
             
             $this->sContent .= '</div>';
 
@@ -232,11 +232,11 @@ class StaticQrcode {
             $this->sData = $ics->to_string();
             $this->sContent = '<div class="row"><div class="col-sm-4">';
             
-                $this->sContent .= '<strong>Title:</strong> '.$title.'<br>'.'<strong>Start event:</strong> '.$start.'<br>'.'<strong>End event:</strong> '.$end.'<br></div>';
+                $this->sContent .= 'Title: '.$title.'<br>'.'Start event: '.$start.'<br>'.'End event: '.$end.'<br></div>';
             
             $this->sContent .= '<div class="col-sm-4">';
             
-                $this->sContent .= '<strong>Location:</strong> '.$location.'<br>'.'<strong>Description:</strong> '.$description.'<br>'.'<strong>URL:</strong> '.$url.'</div>';
+                $this->sContent .= 'Location: '.$location.'<br>'.'Description: '.$description.'<br>'.'URL: '.$url.'</div>';
             
             $this->sContent .= '</div>';
 
@@ -255,7 +255,7 @@ class StaticQrcode {
     {
         if($url != NULL){
             $this->sData = 'MEBKM:TITLE:'.$title.';URL:'.$url.';';  
-            $this->sContent = '<strong>Title:</strong> '.$title.'<br>'.'<strong>Url:</strong> '.$url;
+            $this->sContent = 'Title: '.$title.'<br>'.'Url: '.$url;
 
             $this->addQrcode("bookmark");
         }
@@ -273,7 +273,7 @@ class StaticQrcode {
     {
         if($ssid != NULL){
             $this->sData = 'WIFI:T:'.$encryption.';S:'.$ssid.';P:'.$password.';';  
-            $this->sContent = '<strong>Encryption:</strong> '.$encryption.'<br>'.'<strong>SSID:</strong> '.$ssid.'<br>'.'<strong>Password:</strong> '.$password;
+            $this->sContent = 'Encryption: '.$encryption.'<br>'.'SSID: '.$ssid.'<br>'.'Password: '.$password;
 
             $this->addQrcode("wifi");
         }
@@ -299,11 +299,11 @@ class StaticQrcode {
             
             $this->sContent = '<div class="row"><div class="col-sm-4">';
             
-                $this->sContent .= '<strong>Payment type:</strong> '.$payment_type.'<br>'.'<strong>Email:</strong> '.$email.'<br>'.'<strong>Item name:</strong> '.$item_name.'<br>'.'<strong>Item id:</strong> '.$item_id.'</div>';
+                $this->sContent .= 'Payment type: '.$payment_type.'<br>'.'Email: '.$email.'<br>'.'Item name: '.$item_name.'<br>'.'Item id: '.$item_id.'</div>';
             
             $this->sContent .= '<div class="col-sm-4">';
             
-                $this->sContent .= '<strong>Amount:</strong> '.$amount.'<br>'.'<strong>Currency:</strong> '.$currency.'<br>'.'<strong>Shipping:</strong> '.$shipping.'<br>'.'<strong>Tax rate:</strong> '.$tax_rate.'</div>';
+                $this->sContent .= 'Amount: '.$amount.'<br>'.'Currency: '.$currency.'<br>'.'Shipping: '.$shipping.'<br>'.'Tax rate: '.$tax_rate.'</div>';
                 
             $this->sContent .= '</div>';
 
@@ -324,8 +324,8 @@ class StaticQrcode {
     {
         if($address != NULL && $amount != NULL){
             $this->sData = 'bitcoin:'.$address.'?amount='.$amount.'&label='.$label.'&message='.$message;
-            $this->sContent = '<strong>BTC address:</strong> '.$address.'<br>'.'<strong>Amount:</strong> '.$amount.'<br>';
-            $this->sContent .= '<strong>Label:</strong> '.$label.'<br>'.'<strong>Message:</strong> '.$message;
+            $this->sContent = 'BTC address: '.$address.'<br>'.'Amount: '.$amount.'<br>';
+            $this->sContent .= 'Label: '.$label.'<br>'.'Message: '.$message;
         
             $this->addQrcode("bitcoin");
         }
