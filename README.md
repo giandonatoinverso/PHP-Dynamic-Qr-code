@@ -8,7 +8,7 @@
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UEYVHYZYCGYYN)
 
-contact me at hello@giandonatoinverso.dev for installations, custom implementations and to find out about available non-open source plugins
+contact me at hello@giandonatoinverso.dev for installations, custom implementations and to find out about [available non-open source plugins](#available-plugins)
 
 # Features
 
@@ -69,19 +69,42 @@ docker compose build --no-cache && docker compose up -d
 
 For other setup methods please see the documentation
 
-## Changelog
+# Available plugins
 
-- Version 1.0 – September, 2020 (Initial release)
+## QrRole
+
+Manage user privileges with multi-level access control:
+
+- *Creator*: can only create and delete your own qrcodes
+- *Modifier*: can create and modify creators' qrcodes
+- *Admin*: can create, modify and delete everyone's qrcodes and can create other users
+
+## QrStyle
+Unlock advanced customization features for QR codes, including logo uploads, watermarking, and custom marker settings.
+
+## QrTemplate
+Save time by creating reusable templates for generating QR codes with predefined styles and settings.
+
+## QrBulk
+
+- Create static or dynamic QR codes in bulk by compiling an Excel file with the QR code data and uploading it to the site. Inside the file it is possible to specify, if necessary, an already existing QrTemplate template. After creation you will be able to download a zip file with the QR codes created and the same Excel file but with the redirect identifier added
+
+- Create dynamic QR codes in bulk by choosing the desired number, so you can download a zip file with the created QR codes, Excel files so you can print them. At a later time you can modify the URLs associated with the QR codes created
+
+# Changelog
+
+- Version 2.2 – 16th October, 2023
+    - Refactoring docker image building
+    - NEW: added docker-compose support
+- Version 2.1 – 16th October, 2023
+    - Refactoring database tables
+    - Added script for upgrading to versions >= 2.0
+    - NEW: added multi-user support for dynamic/static qrcodes
 - Version 2.0 – 15th October, 2023
     - Elimination of superfluous files
     - Moving read.php file within the project
     - Addition of Qrcode class abstraction
     - Improvement of bulk download
     - General refactoring
-- Version 2.1 – 16th October, 2023
-    - Refactoring database tables
-    - Added script for upgrading to versions >= 2.0
-    - NEW: added multi-user support for dynamic/static qrcodes
-- Version 2.2 – 16th October, 2023
-    - Refactoring docker image building
-    - NEW: added docker-compose support
+- Version 1.0 – September, 2020 (Initial release)
+
