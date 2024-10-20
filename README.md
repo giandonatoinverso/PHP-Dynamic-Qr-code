@@ -8,6 +8,8 @@
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UEYVHYZYCGYYN)
 
+contact me at hello@giandonatoinverso.dev for installations, custom implementations and to find out about available non-open source plugins
+
 # Features
 
 - **#1 Dynamic Qr code generator on GitHub with a database to store Qr codes**
@@ -47,9 +49,7 @@
 - Easy to understand and expand code
 - Full OOP with classes and well-documented
 
-N.B. The project requires at least PHP 7.4 to run properly. It has been successfully tested up to PHP 8.1.
-
-Contact me for custom implementations and additional plugins
+The project requires at least PHP 7.4 to run properly. It has been successfully tested up to PHP 8.1.
 
 ## What is included
 
