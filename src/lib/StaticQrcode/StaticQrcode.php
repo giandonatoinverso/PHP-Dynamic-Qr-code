@@ -332,6 +332,37 @@ class StaticQrcode {
         else
             $this->requiredFieldsError();
     }
+    
+    /**
+     * create a qr code of type "2FA"
+     * @string algorithms -> required
+     * @string secret -> required
+     * @string label -> required
+     * @string issuer
+     * otpauth://TYPE/LABEL?PARAMETERS
+     * otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=Example
+     */
+    public function twofaQrcode($algorithms, $secret, $label, $issuer)
+    {
+        if($algorithms != NULL && $secret != NULL && $label != NULL){
+            $this->sData = 'otpauth://' . $algorithms . '/' . $label . '?secret=' . $secret;
+
+            if (!empty($issuer)) {
+                $this->sData .= '&issuer=' . $issuer;
+            }
+
+            $this->sContent = '<strong>Type:</strong> ' . $algorithms . '<br>'.'<strong>Secret:</strong> ' . $secret . '<br>';
+            $this->sContent .= '<strong>Label:</strong> ' . rawurldecode($label);
+
+            if (!empty($issuer)) {
+                $this->sContent .= '<br><strong>Issuer:</strong> '. rawurldecode($issuer);
+            }
+
+            $this->addQrcode("2fa");
+        }
+        else
+            $this->requiredFieldsError();
+    }
 
     public function getQrcode($id) {
         return $this->qrcode_instance->getQrcode($id);
