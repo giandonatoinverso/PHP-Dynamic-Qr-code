@@ -41,6 +41,9 @@
                   <li class="nav-item">
                     <a class="nav-link" data-toggle="pill" href="#bitcoin" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Bitcoin <i class="fab fa-bitcoin"></i></a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#twofa" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">2FA <i class="fa fa-key"></i></a>
+                  </li>
                 </ul>
             </div>
               <div class="card-body">
@@ -83,6 +86,9 @@
                     </div>
                     <div class="tab-pane fade" id="bitcoin" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
                         <?php include BASE_PATH . '/forms/static/bitcoin.php'; ?>  
+                    </div>
+                    <div class="tab-pane fade" id="twofa" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
+                        <?php include BASE_PATH . '/forms/static/2fa.php'; ?>  
                     </div>
                 </div>
               </div>

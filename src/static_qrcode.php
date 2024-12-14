@@ -65,6 +65,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST["edit"])) {
 
         case 'bitcoin':      $static_qrcode_instance->bitcoinQrcode($_POST['address'], $_POST['amount'], $_POST['label'], $_POST['message']);
             break;
+
+        case '2fa':      $static_qrcode_instance->twofaQrcode($_POST['algorithms'], $_POST['secret'], rawurlencode($_POST['label']), rawurlencode($_POST['issuer']));
+            break;
     }
 }
 ?>
