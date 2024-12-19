@@ -1,15 +1,16 @@
 <form class="form" action="static_qrcode.php?type=event" method="post" id="static_form" enctype="multipart/form-data">
     <?php include BASE_PATH.'/forms/qrcode_options.php'; ?>
 <!-- Input forms -->
+<div class="col-sm-4">
+	<div class="form-group">
+		<label>Title: *</label>
+		<input type="text" name="title" value="" placeholder="" class="form-control">
+	</div>
+</div>
+
 <div class="col-sm-12 mb-2">
     <div class="row">
-        <div class="col-6 col-md-3">
-            <div class="form-group">
-                <label>Title: *</label>
-                <input type="text" name="title" value="" placeholder="" class="form-control">
-            </div>
-        </div>
-    
+   
         <div class="col-6 col-md-4">
             <div class="form-group">
                 <label>Date start: *</label>
@@ -33,6 +34,15 @@
                 </div><!-- /.input group -->
             </div>
         </div>
+
+		<div class="col-6 col-md-3">
+			<div class="form-group">
+				<label>Time zone *</label>
+				<select name="timezone" class="form-control">
+				<?php include BASE_PATH . '/forms/static/timezones.html'; ?> 
+				</select>
+			</div>
+		</div>
     </div>
 </div>
 
