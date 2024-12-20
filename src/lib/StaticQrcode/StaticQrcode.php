@@ -214,30 +214,37 @@ class StaticQrcode {
      * @string summary
      * @string url
      */
-    public function eventQrcode($title, $start, $end, $location, $description, $url)
+    public function eventQrcode($title, $start, $end, $timezone, $location, $description, $url)
     {
-        if($description != NULL && $start != NULL && $end != NULL){
+        if($title != NULL && $start != NULL && $end != NULL){
             header('Content-Type: text/calendar; charset=utf-8');
             header('Content-Disposition: attachment; filename=invite.ics');
-            
+
+            $timezoneFrom = $timezone;
+
+            if(empty($timezoneFrom)){
+                $timezoneFrom = 'Europe/Berlin';
+            }
+
+            $tmpStart = new DateTime($start, new DateTimeZone($timezoneFrom));
+            $tmpEnd = new DateTime($end, new DateTimeZone($timezoneFrom));
+            $tmpStart->setTimezone(new DateTimeZone("UTC"));
+            $tmpEnd->setTimezone(new DateTimeZone("UTC"));
+
             $ics = new ICS(array(
                 'location' => $location,
                 'description' => $description,
-                'dtstart' => $start,
-                'dtend' => $end,
+                'dtstart' => $tmpStart->format("Y-m-d H:i:s"),
+                'dtend' => $tmpEnd->format("Y-m-d H:i:s"),
                 'summary' => $title,
                 'url' => $url
             ));
             
             $this->sData = $ics->to_string();
             $this->sContent = '<div class="row"><div class="col-sm-4">';
-            
-                $this->sContent .= '<strong>Title:</strong> '.$title.'<br>'.'<strong>Start event:</strong> '.$start.'<br>'.'<strong>End event:</strong> '.$end.'<br></div>';
-            
+            $this->sContent .= '<strong>Title:</strong> '.$title.'<br>'.'<strong>Start event:</strong> '.$start.'<br>'.'<strong>End event:</strong> '.$end.'<br>'.'<strong>Time zone:</strong> '.$timezone.'<br></div>';
             $this->sContent .= '<div class="col-sm-4">';
-            
-                $this->sContent .= '<strong>Location:</strong> '.$location.'<br>'.'<strong>Description:</strong> '.$description.'<br>'.'<strong>URL:</strong> '.$url.'</div>';
-            
+            $this->sContent .= '<strong>Location:</strong> '.$location.'<br>'.'<strong>Description:</strong> '.$description.'<br>'.'<strong>URL:</strong> '.$url.'</div>';
             $this->sContent .= '</div>';
 
             $this->addQrcode("event");

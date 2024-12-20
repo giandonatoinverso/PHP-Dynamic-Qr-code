@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST["edit"])) {
         case 'vcard':        $static_qrcode_instance->vcardQrcode($_POST['full_name'], $_POST['nickname'], $_POST['email'], $_POST['website'], $_POST['phone'], $_POST['home_phone'], $_POST['work_phone'], $_POST['company'], $_POST['role'], $_POST['categories'], $_POST['note'], $_POST['photo'], $_POST['address'], $_POST['city'], $_POST['post_code'], $_POST['state']);
             break;
 
-        case 'event':        $static_qrcode_instance->eventQrcode($_POST['title'], $_POST['start'], $_POST['end'], $_POST['location'], $_POST['description'], $_POST['url']);
+        case 'event':        $static_qrcode_instance->eventQrcode($_POST['title'], $_POST['start'], $_POST['end'], $_POST['timezone'], $_POST['location'], $_POST['description'], $_POST['url']);
             break;
 
         case 'bookmark':     $static_qrcode_instance->bookmarkQrcode($_POST['url'], $_POST['title']);
@@ -162,23 +162,25 @@ $(document).ready(function(){
 
             $('#start').daterangepicker({
                 timePicker: true,
+                timePicker24Hour: true,
                 singleDatePicker: true,
                 showDropdowns: true,
-                minYear: 2020,
-                maxYear: 2030,
+                minYear: parseInt(moment().subtract(2, 'years').format('YYYY'), 10),
+                maxYear: parseInt(moment().add(8, 'years').format('YYYY'), 10),
                 locale: {
-                    format: 'YYYY-MM-DD hh:mm A'
+                    format: 'YYYY-MM-DD HH:mm'
                 }
             })
 
             $('#end').daterangepicker({
                 timePicker: true,
+                timePicker24Hour: true,
                 singleDatePicker: true,
                 showDropdowns: true,
-                minYear: 2020,
-                maxYear: 2030,
+                minYear: parseInt(moment().subtract(2, 'years').format('YYYY'), 10),
+                maxYear: parseInt(moment().add(8, 'years').format('YYYY'), 10),
                 locale: {
-                    format: 'YYYY-MM-DD hh:mm A'
+                    format: 'YYYY-MM-DD HH:mm'
                 }
             })
 
