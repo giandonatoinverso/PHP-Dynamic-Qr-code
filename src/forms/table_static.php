@@ -58,7 +58,7 @@
                 </td>
                 <td><?php echo htmlspecialchars($row['filename']); ?></td>
                 <td><?php echo htmlspecialchars($row['type']); ?></td>
-                <td><?php echo $row['content']; ?></td>
+                <td><?php echo htmlspecialchars_decode($row['content']); ?></td>
                 <td>
                     <?php echo '<img src="'.SAVED_QRCODE_FOLDER.htmlspecialchars($row['qrcode']).'" width="100" height="100">'; ?>
                 </td>
