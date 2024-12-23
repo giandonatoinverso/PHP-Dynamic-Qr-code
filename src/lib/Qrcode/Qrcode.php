@@ -1,19 +1,5 @@
 <?php
 require_once 'config/config.php';
-use chillerlan\QRCode\Common\EccLevel;
-use chillerlan\QRCode\QRCode as QRCodeEx;
-use chillerlan\QRCode\QROptions;
-use chillerlan\QRCode\Data\QRMatrix;
-use chillerlan\QRCode\Output\QRImagick;
-use chillerlan\QRCode\Output\QRGdImagePNG;
-use chillerlan\QRCode\Output\QRGdImageJPEG;
-use chillerlan\QRCode\Output\QREps;
-use chillerlan\QRCode\Output\QRMarkupSVG;
-use chillerlan\QRCode\Output\QRCodeOutputException;
-use chillerlan\QRCode\Output\QROutputInterface;
-use chillerlan\Settings\SettingsContainerInterface;
-
-require_once __DIR__.'/../../vendor/autoload.php';
 
 class Qrcode {
     private string $table;
@@ -67,7 +53,7 @@ class Qrcode {
       
         $size = 100;
         if (isset($input_data['size']))
-            $size = min(max((int)$input_data['size'], 100), 2000);
+            $size = min(max((int)$input_data['size'], 100), 1000);
 
         //character # deleted
         $foreground = substr($input_data['foreground'], 1);
@@ -93,207 +79,28 @@ class Qrcode {
     public function addQrcode($input_data, $data_to_db, $data_to_qrcode) {
         $options = $this->setOptions($input_data);
 
-        $outputInterface = QRGdImagePNG::class;
-        $imageFormat = strtolower($data_to_db['format']);
-        $fileExt = $imageFormat;
-        $forceBlackWhite = false;
+        if(!file_exists(SAVED_QRCODE_DIRECTORY.$data_to_db['filename'].'.'.$data_to_db['format'])){
+            $url =
+                'https://api.qrserver.com/v1/create-qr-code/?data='.
+                $data_to_qrcode.
+                '&amp;&size='.$options['size'].'x'.$options['size'].
+                '&ecc='.$options['errorCorrectionLevel'].
+                '&margin=0&color='.$options['foreground'].
+                '&bgcolor='.$options['background'].
+                '&qzone=2'.
+                '&format='.$data_to_db['format'];
 
-
-         switch ($imageFormat)
-         {
-             case 'png':
-                 $outputInterface = QRGdImagePNG::class;
-                 $imageFormat = 'png';
-                 break;
-             case 'gif':
-                 $outputInterface = QRImagick::class;
-                 $imageFormat = 'gif';
-                 break;
-             case 'jpg':
-                 $outputInterface = QRImagick::class;
-                 $imageFormat = 'jpg';
-                 break;
-             case 'jpeg':
-                 $outputInterface = QRImagick::class;
-                 $imageFormat = 'jpeg';
-                 break;
-             case 'svg':
-                 # $outputInterface = QRImagick::class;
-                 $outputInterface = QRMarkupSVG::class;
-                 $imageFormat = 'svg';
-                 break;
-             case 'svgbw':
-                 $outputInterface = QRMarkupSVG::class;
-                 $imageFormat = 'svg';
-                 $fileExt = 'svg';
-                 $forceBlackWhite = true;
-                 $data_to_db['format'] = $fileExt;
-                 $data_to_db['qrcode'] = str_replace('.svgbw', '.svg', $data_to_db['qrcode']);
-                 break;
-             case 'eps':
-                 $outputInterface = QREps::class;
-                 $imageFormat = 'eps';
-                 break;
-         }
-
-
-        if(!file_exists(SAVED_QRCODE_DIRECTORY.$data_to_db['filename'].'.' . $fileExt)){
-            $eccLevel = constant(EccLevel::class.'::'.strtoupper($options['errorCorrectionLevel']));
-
-            $qroptions                       = new QROptions;
-            $qroptions->outputInterface      = $outputInterface;
-            $qroptions->outputBase64         = false;
-            $qroptions->eccLevel             = $eccLevel;
-            $qroptions->quietzoneSize        = 2;
-
-            $moduleValues = [
-                // finder
-                QRMatrix::M_FINDER_DARK    => $options['foreground'],
-                QRMatrix::M_FINDER_DOT     => $options['foreground'],
-                QRMatrix::M_FINDER         => $options['background'],
-                // alignment
-                QRMatrix::M_ALIGNMENT_DARK => $options['foreground'],
-                QRMatrix::M_ALIGNMENT      => $options['background'],
-                // timing
-                QRMatrix::M_TIMING_DARK    => $options['foreground'],
-                QRMatrix::M_TIMING         => $options['background'],
-                // format
-                QRMatrix::M_FORMAT_DARK    => $options['foreground'],
-                QRMatrix::M_FORMAT         => $options['background'],
-                // version
-                QRMatrix::M_VERSION_DARK   => $options['foreground'],
-                QRMatrix::M_VERSION        => $options['background'],
-                // data
-                QRMatrix::M_DATA_DARK      => $options['foreground'],
-                QRMatrix::M_DATA           => $options['background'],
-                // darkmodule
-                QRMatrix::M_DARKMODULE     => $options['foreground'],
-                // separator
-                QRMatrix::M_SEPARATOR      => $options['background'],
-                // quietzone
-                QRMatrix::M_QUIETZONE      => $options['background'],
-            ];
-
-            if(in_array($data_to_db['format'], ['png', 'jpg', 'gif'], true))
-            {
-                $moduleValues = array_map(function($v)
-                {
-                    if(preg_match('/[a-f\d]{6}/i', $v) === 1)
-                    {
-                        return array_map('hexdec', str_split($v, 2));
-                    }
-
-                    return null;
-                }, $moduleValues);
-
-                $qroptions->moduleValues = $moduleValues;
-            }
-            else
-            {
-                $moduleValues = array_map(function($v)
-                {
-                    if(preg_match('/[a-f\d]{6}/i', $v) === 1)
-                    {
-                        return '#' . $v ;
-                    }
-
-                    return null;
-                }, $moduleValues);
-
-                $qroptions->moduleValues = $moduleValues;
-            }
-
-            if ($outputInterface === QRMarkupSVG::class)
-            {
-                $qroptions->version              = 7;
-                // if set to false, the light modules won't be rendered
-                $qroptions->drawLightModules     = true;
-                $qroptions->svgUseFillAttributes = false;
-                // draw the modules as circles isntead of squares
-                $qroptions->drawCircularModules  = true;
-                $qroptions->circleRadius         = 0.4;
-                // connect paths
-                $qroptions->connectPaths         = true;
-                // keep modules of these types as square
-                $qroptions->keepAsSquare = [
-                    QRMatrix::M_FINDER_DARK,
-                    QRMatrix::M_FINDER_DOT,
-                    QRMatrix::M_ALIGNMENT_DARK,
-                ];
-                
-                if($forceBlackWhite)
-                {
-                    $qroptions->drawLightModules     = false;
-                    $qroptions->drawCircularModules  = false;
-                    // https://developer.mozilla.org/en-US/docs/Web/SVG/Element/linearGradient
-                    $qroptions->svgDefs = '
-                        <linearGradient id="rainbow" x1="1" y2="1">
-                            <stop stop-color="#' . $options['foreground'] . '" offset="0"/>
-                            <stop stop-color="#' . $options['foreground'] . '" offset="1"/>
-                        </linearGradient>
-                        <style><![CDATA[
-                            .dark{fill: url(#rainbow);}
-                            .light{fill: #eee;}
-                        ]]></style>';
-                }
-                else
-                {
-                  // https://developer.mozilla.org/en-US/docs/Web/SVG/Element/linearGradient
-                    $qroptions->svgDefs             = '
-                        <linearGradient id="rainbow" x1="1" y2="1">
-                            <stop stop-color="#e2453c" offset="0"/>
-                            <stop stop-color="#e07e39" offset="0.2"/>
-                            <stop stop-color="#e5d667" offset="0.4"/>
-                            <stop stop-color="#51b95b" offset="0.6"/>
-                            <stop stop-color="#1e72b7" offset="0.8"/>
-                            <stop stop-color="#6f5ba7" offset="1"/>
-                        </linearGradient>
-                        <style><![CDATA[
-                            .dark{fill: url(#rainbow);}
-                            .light{fill: #eee;}
-                        ]]></style>';
-                }
-            }
-            else
-            {
-                $qroptions->version         = -1;
-                $qroptions->scale           = 20;
-                $qroptions->quality         = 83;
-            }
-
-            if ($outputInterface === QRImagick::class)
-            {
-                $qroptions->imagickFormat       = $imageFormat;
-                $qroptions->returnResource = true;
-                $imagick = (new QRCodeEx($qroptions))->render(urldecode($data_to_qrcode));
-                $imagick->scaleImage($options['size'], $options['size'], true);
-                $content = $imagick->getImageBlob();
-                $imagick->destroy();
-            }
-            else
-            {
-                $content = (new QRCodeEx($qroptions))->render(urldecode($data_to_qrcode));
-            }
-
-            $filename = SAVED_QRCODE_DIRECTORY.$data_to_db['filename'].'.' . $fileExt;
-
-            try
-            {
+            $content = file_get_contents($url);
+            
+            $filename = SAVED_QRCODE_DIRECTORY.$data_to_db['filename'].'.'.$data_to_db['format'];
+        
+            try{
                 file_put_contents($filename, $content);
-                if ($outputInterface !== QRImagick::class &&
-                    $outputInterface !== QRMarkupSVG::class)
-                {
-                    $imagick = new \Imagick(realpath($filename));
-                    $imagick->resizeImage($options['size'], $options['size'], imagick::FILTER_LANCZOS, 1, false);
-                    $imagick->writeImage($filename);
-                    $imagick->destroy();
-                }
             }
-            catch(Exception $e)
-            {
+            catch(Exception $e){
                 $this->failure($e->getMessage());
             }
-
+            
             // If you want you can customi<e qr code with logo
             //$this->addLogo($data_to_db['qrcode'], $options['optionlogo']);
               
