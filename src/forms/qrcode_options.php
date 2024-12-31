@@ -45,7 +45,11 @@
                     <option value="800">800</option>
                     <option value="900">900</option>
                     <option value="1000">1000</option>
-                    <option value="2000">2000</option>
+<?php
+if (QRCODE_GENERATOR === "internal-chillerlan.qrcode") {
+    echo '                    <option value="2000">2000</option>';
+}
+?>
                 </select>
             </div>
         </div>
@@ -76,7 +80,11 @@
                     <option value="jpeg">JPEG</option>
                     <option value="jpg">JPG</option>
                     <option value="svg">SVG</option>
-                    <option value="svgbw">SVG (BW)</option>
+<?php
+if (QRCODE_GENERATOR === "internal-chillerlan.qrcode") {
+    echo '                    <option value="svgbw">SVG (BW)</option>';
+}
+?>
                     <option value="eps">EPS</option>
                 </select>
     </div>

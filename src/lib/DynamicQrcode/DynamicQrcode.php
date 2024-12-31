@@ -1,6 +1,13 @@
 <?php
 require_once 'config/config.php';
-require_once BASE_PATH . '/lib/Qrcode/Qrcode.php';
+
+if (QRCODE_GENERATOR === "external-api.qrserver.com") {
+    require_once BASE_PATH . '/lib/Qrcode/Qrcode.php';
+}
+
+if (QRCODE_GENERATOR === "internal-chillerlan.qrcode") {
+    require_once BASE_PATH . '/lib/Qrcode/Qrcode-intchil.php';
+}
 
 
 class DynamicQrcode {
