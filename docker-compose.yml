@@ -5,6 +5,7 @@ services:
     restart: "unless-stopped"
     environment:
       TYPE: "docker"
+      QRCODE_GENERATOR: "internal-chillerlan.qrcode"
       BASE_URL: "https://mydomain.com"
       DATABASE_HOST: "php-dynamic-qrcode-db"
       DATABASE_PORT: "3306"
