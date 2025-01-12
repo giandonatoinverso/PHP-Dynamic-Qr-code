@@ -15,6 +15,7 @@ if(is_string(Getenv('TYPE')) && Getenv('TYPE') == "docker") {
     define('DATABASE_CHARSET', Getenv('DATABASE_CHARSET'));
     define('TYPE', Getenv('TYPE'));
     define('BASE_URL', Getenv('BASE_URL'));
+    define("QRCODE_GENERATOR", Getenv('QRCODE_GENERATOR'));
 } else {
     define('DATABASE_HOST', "localhost");
     define('DATABASE_PORT', "3306");
@@ -23,6 +24,7 @@ if(is_string(Getenv('TYPE')) && Getenv('TYPE') == "docker") {
     define('DATABASE_PASSWORD', "root");
     define('DATABASE_PREFIX', "qr_");
     define('DATABASE_CHARSET', "utf8");
+    define("QRCODE_GENERATOR", "external-api.qrserver.com");  // external-api.qrserver.com  => https://api.qrserver.com/v1/create-qr-code/?data=    //  internal-chillerlan.qrcode => https://github.com/chillerlan/php-qrcode
 }
 /*
 |--------------------------------------------------------------------------
