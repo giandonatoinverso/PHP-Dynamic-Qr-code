@@ -8,7 +8,7 @@
   <footer class="main-footer text-sm">
     <strong><a href="https://github.com/giandonatoinverso/PHP-Dynamic-Qr-code" target="_blank">PHP Qrcode Generator</a> by </strong> Giandonato Inverso
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 2.2.7
+      <b>Version</b> 2.3.0
     </div>
   </footer>
 </div>
