@@ -1,4 +1,13 @@
 <?php
+//Use httponly flag
+ini_set('session.cookie_httponly', 1);
+
+//Use only cookies
+ini_set('session.use_only_cookies', 1);
+
+//Use secure flag
+ini_set('session.cookie_secure', 1);
+
 session_start();
 require_once './config/config.php';
 require_once 'includes/auth_validate.php';
