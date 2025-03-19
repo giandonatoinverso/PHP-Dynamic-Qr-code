@@ -7,6 +7,7 @@ ini_set('display_errors', 'On');
 define('BASE_PATH', dirname(dirname(__FILE__)));
 define('CURRENT_PAGE', basename($_SERVER['REQUEST_URI']));
 define('SCRIPT_NAME', ltrim(dirname($_SERVER['SCRIPT_NAME']), '/'));
+define('QRCODE_GENERATOR', getenv('QRCODE_GENERATOR') ?: 'internal-chillerlan.qrcode');
 
 if(SCRIPT_NAME === "")
     define('SCRIPT_FOLDER', "");
