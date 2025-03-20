@@ -12,8 +12,6 @@ password: admin
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UEYVHYZYCGYYN)
 
-contact me at hello@giandonatoinverso.dev for installations, custom implementations and to find out about [available non-open source plugins](#available-plugins)
-
 # Features
 
 - **#1 Dynamic Qr code generator on GitHub with a database to store Qr codes**
@@ -67,23 +65,3 @@ contact me at hello@giandonatoinverso.dev for installations, custom implementati
 docker compose build --no-cache && docker compose up -d
 ```
 3. Open your browser at http://localhost:80 and login with (username: superadmin, password: superadmin)
-
-# Available non open source plugins
-
-## QrRole
-Manage user privileges with multi-level access control:
-
-- *Creator*: can only create and delete your own qrcodes
-- *Modifier*: can create and modify creators' qrcodes
-- *Admin*: can create, modify and delete everyone's qrcodes and can create other users
-
-## QrStyle
-Unlock advanced customization features for QR codes, including logo uploads, watermarking, and custom marker settings.
-
-## QrTemplate
-Save time by creating reusable templates for generating QR codes with predefined styles and settings.
-
-## QrBulk
-- Create static or dynamic QR codes in bulk by compiling an Excel file with the QR code data and uploading it to the site. Inside the file it is possible to specify, if necessary, an already existing QrTemplate template. After creation you will be able to download a zip file with the QR codes created and the same Excel file but with the redirect identifier added
-
-- Create dynamic QR codes in bulk by choosing the desired number, so you can download a zip file with the created QR codes, Excel files so you can print them. At a later time you can modify the URLs associated with the QR codes created
