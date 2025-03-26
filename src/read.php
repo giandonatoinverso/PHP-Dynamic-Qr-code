@@ -1,24 +1,46 @@
 <?php
 include 'config/config.php';
 
-if($_SERVER["REQUEST_METHOD"] !== "GET" || !isset($_GET['id']))
+if ($_SERVER["REQUEST_METHOD"] !== "GET" || !isset($_GET['id'])) {
     die("Method not allowed. Check id parameter");
+}
+
+// Validation and sanitization of the input
+$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+
+if (!$id) {
+    die("Invalid ID parameter");
+}
 
 $db = getDbInstance();
 
-$db->where("identifier", $_GET['id']);
+// Using prepared statements to avoid SQL injections
+$db->where("identifier", $id);
 $qrcode = $db->getOne("dynamic_qrcodes");
 
-$data = array (
+if (!$qrcode) {
+    die("QR code not found");
+}
+
+$data = array(
     'scan' => $db->inc(1)
 );
-$db->where("identifier", $_GET['id']);
-$db->update ('dynamic_qrcodes', $data);
-    
-    if($qrcode['state'] == 'enable'){
-        echo '<meta http-equiv="refresh" content="0; URL='.$qrcode['link'].'" />';
+
+$db->where("identifier", $id);
+if (!$db->update('dynamic_qrcodes', $data)) {
+    die("Failed to update scan count");
+}
+
+if ($qrcode['state'] == 'enable') {
+    // Validation and escaping of the URL to avoid XSS attacks
+    $link = filter_var($qrcode['link'], FILTER_VALIDATE_URL);
+    if ($link) {
+        echo '<meta http-equiv="refresh" content="0; URL=' . htmlspecialchars($link, ENT_QUOTES, 'UTF-8') . '" />';
         echo 'Loading...'; // You can include a custom page to display during the redirect
+    } else {
+        echo 'Invalid URL';
     }
-    else
-        echo 'Disabled link';
+} else {
+    echo 'Disabled link';
+}
 ?>
