@@ -5,8 +5,9 @@ if ($_SERVER["REQUEST_METHOD"] !== "GET" || !isset($_GET['id'])) {
     die("Method not allowed. Check id parameter");
 }
 
-// Validation and sanitization of the input
-$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+// Validation and sanitization of the input UPDATE to php 8.3
+$id = filter_input(INPUT_GET, 'id', FILTER_UNSAFE_RAW);
+$id = trim(strip_tags($id));
 
 if (!$id) {
     die("Invalid ID parameter");
