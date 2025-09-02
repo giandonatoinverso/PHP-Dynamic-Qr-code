@@ -10,8 +10,6 @@ password: admin
 
 [DOCUMENTATION](https://giandonatoinverso.it/qrcode/documentation)
 
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UEYVHYZYCGYYN)
-
 # Features
 
 - **#1 Dynamic Qr code generator on GitHub with a database to store Qr codes**
